@@ -1,0 +1,15 @@
+const isActive = true
+
+composeClassnames('class-name', isActive)
+
+composeClassnames({
+  'foo': true,
+  'bar': false
+})
+
+composeClassnames('foo', isActive, 'my-prefix')
+
+composeClassnames({
+  'foo': true,
+  'bar': false
+}, 'my-prefix')

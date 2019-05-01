@@ -1,0 +1,23 @@
+// Inline links
+.rich-text-hyperlink {
+  color: $blue;
+  text-decoration-color: currentColor;
+
+  &:hover,
+  &:focus {
+    opacity: 0.65;
+  }
+
+}
+
+// Regular list content is sometimes wrapped in paragraphs
+.rich-text-list-item {
+  > p {
+    @include no-push-vertical;
+  }
+}
+
+// Heading levels
+.rich-text-heading-1 {
+  @include h2;
+}

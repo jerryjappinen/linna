@@ -1,0 +1,7 @@
+# https://www.netlify.com/docs/netlify-toml-reference/
+
+# Build config
+# NOTE: these will override values set in Netlify UI
+[build]
+  publish = "dist"
+  command = "npm run netlify"

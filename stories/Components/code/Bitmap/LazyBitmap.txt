@@ -1,0 +1,5 @@
+<!-- Only load image once it enters viewport, then fade it in -->
+<lazy-bitmap
+  src="https://source.unsplash.com/1600x900/?space"
+  title="Space"
+/>

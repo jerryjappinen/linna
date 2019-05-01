@@ -1,0 +1,27 @@
+<animation
+  name="my-animation-name"
+  :duration="1000"
+/>
+
+<!-- Play only once -->
+<animation
+  name="my-animation-name"
+  :count="1"
+/>
+
+<!-- Set easing function: https://easings.net/en -->
+<animation
+  name="my-animation-name"
+  easing="cubic-bezier(0.86, 0, 0.07, 1)"
+/>
+
+<!-- Reusable animations -->
+<spin :count="2">
+  <div>Foo</div>
+</spin>
+
+<!-- @keyframes defined in scoped style tag -->
+<animation
+  :name="'my-animation-name' + '-' + $options._scopeId"
+  :duration="1000"
+/>

@@ -1,0 +1,10 @@
+{
+  "recommendations": [
+    "bungcip.better-toml",
+    "dariofuzinato.vue-peek",
+    "dbaeumer.vscode-eslint",
+    "EditorConfig.editorconfig",
+    "octref.vetur",
+    "wayou.vscode-todo-highlight"
+  ]
+}

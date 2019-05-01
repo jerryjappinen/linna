@@ -1,0 +1,4 @@
+<styled-textfield
+  :value.sync="value"
+  :multiline="true"
+/>

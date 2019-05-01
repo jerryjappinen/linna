@@ -1,0 +1,2 @@
+<vector src="cross" />
+<vector src="chevron-right" />

@@ -1,0 +1,3 @@
+<icon src="plus" />
+<icon src="arrow-left" />
+<icon src="arrow-right" />

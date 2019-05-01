@@ -1,0 +1,17 @@
+<script>
+import time from 'linna/services/time'
+
+export default {
+  computed: {
+    currentTime () {
+      return time.current
+    }
+  }
+}
+</script>
+
+<template>
+  <div>
+    {{ currentTime }}
+  </div>
+</template>

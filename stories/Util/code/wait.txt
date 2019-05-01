@@ -1,0 +1,12 @@
+const pings = []
+
+function ping () {
+  pings.push(Math.random())
+}
+
+function async demo () {
+  for (let i = 0; i < 10; i++) {
+    ping()
+    await wait(3000)
+  }
+}

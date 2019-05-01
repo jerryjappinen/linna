@@ -1,0 +1,27 @@
+// Overrides
+
+@mixin shadow-tight ($opacity: $default-shadow-opacity, $color: $default-shadow-color) {
+  box-shadow: 0 1px 3px rgba($color, $opacity);
+}
+
+
+
+// Custom shadows
+
+@mixin hover-shadow ($color: $dark, $width: 5px, $opacity: 0.25) {
+  box-shadow: 0 0 0 $width color-translucent($color, $opacity);
+}
+
+@mixin hover-shadow-rest ($color: $dark, $width: 5px) {
+  @include hover-shadow($color, 0, 0);
+}
+
+
+
+@mixin hover-shadow-tight ($color: $dark, $opacity: 0.25) {
+  @include hover-shadow($color, 3px, $opacity);
+}
+
+@mixin hover-shadow-tight-rest ($color: $dark) {
+  @include hover-shadow-rest($color, 3px);
+}

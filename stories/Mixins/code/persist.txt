@@ -1,0 +1,45 @@
+import persist from 'linna/mixins/persist'
+
+export default {
+  name: 'MyComponent',
+
+  mixins: [persist],
+
+  data () {
+    return {
+      id: 123,
+      someValue: false
+    }
+  },
+
+  computed: {
+
+    // Optional: define a unique key that is used when saving and restoring the data
+    // By default the component name is used, meaning all component instances will share their local storage data
+    persistKey () {
+      return this.$options.name + this.id
+    },
+
+    persist: {
+
+      // Computed value that also gets written into localStorage
+      set () {
+        return {
+          someValue: this.someValue
+        }
+      },
+
+      // When value is read from localStorage
+      set (localStorageValue) {
+        if (localStorageValue) {
+          if (localStorageValue.someValue) {
+            this.someValue = localStorageValue.someValue
+          }
+        }
+      }
+
+    }
+
+  }
+
+}

@@ -1,0 +1,19 @@
+<app-store-badge />
+<app-store-badge theme="light" />
+
+<app-store-link app-id="1234" />
+<app-store-link
+  app-id="1234"
+  theme="light"
+/>
+
+<google-play-badge />
+<google-play-badge theme="light" />
+
+<google-play-link package-name="1234" />
+
+<mobile-web-app-badge />
+<mobile-web-app-badge theme="light" />
+
+<web-app-badge />
+<web-app-badge theme="light" />

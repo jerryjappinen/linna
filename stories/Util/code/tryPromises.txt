@@ -1,0 +1,15 @@
+async function demo () {
+  await wait(Math.random() * 1000)
+
+  if (Math.random() < 0.5) {
+    return true
+  }
+
+  throw new Error('Failed randomly')
+}
+
+await tryPromises([
+  demo(),
+  demo(),
+  demo()
+])

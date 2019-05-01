@@ -1,0 +1,5 @@
+<!-- Fade image in once it's loaded -->
+<delayed-bitmap
+  src="https://source.unsplash.com/1600x900/?tech"
+  title="Tech"
+/>

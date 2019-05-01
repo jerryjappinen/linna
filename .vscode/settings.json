@@ -1,0 +1,91 @@
+// Place your settings in this file to overwrite default and user settings.
+// NOTE: This will be in version control and apply for all devs
+{
+  "files.exclude": {
+    "**/.git": true,
+    "**/.DS_Store": true,
+    "**/node_modules": true
+  },
+  // Treat certain configuration files as JSON
+  "files.associations": {
+    "*.babelrc": "json",
+    "*.eslintrc": "json"
+  },
+  // Cypress config file
+  "json.schemas": [
+    {
+      "fileMatch": [
+        "cypress.json"
+      ],
+      "url": "https://on.cypress.io/cypress.schema.json"
+    }
+  ],
+  // Vetur tooling configuration
+  "vetur.format.scriptInitialIndent": false,
+  "vetur.format.styleInitialIndent": false,
+  "vetur.validation.script": true,
+  "vetur.validation.style": true,
+  "vetur.validation.template": true,
+  // Emmet should be enabled on .vue files
+  "emmet.syntaxProfiles": {
+    "vue-html": "html",
+    "vue": "html"
+  },
+  // Settings for VS Code's ESLint extension
+  "eslint.validate": [
+    // Defaults
+    {
+      "language": "javascript",
+      "autoFix": true
+    },
+    {
+      "language": "javascriptreact",
+      "autoFix": true
+    },
+    // Inline HTML
+    {
+      "language": "html",
+      "autoFix": true
+    },
+    // Should also go through .vue files
+    {
+      "language": "vue",
+      "autoFix": true
+    }
+  ],
+  // Project TODO/FIXME highlighting with plugin
+  // https://marketplace.visualstudio.com/items?itemName=wayou.vscode-todo-highlight
+  "todohighlight.isCaseSensitive": true,
+  "todohighlight.keywords": [
+    {
+      "text": "BUG",
+      "color": "white",
+      "backgroundColor": "tomato",
+      "overviewRulerColor": "tomato"
+    },
+    {
+      "text": "FIXME",
+      "color": "hotpink",
+      "backgroundColor": "transparent",
+      "overviewRulerColor": "hotpink"
+    },
+    {
+      "text": "HACK",
+      "color": "yellow",
+      "backgroundColor": "transparent",
+      "overviewRulerColor": "yellow"
+    },
+    {
+      "text": "TODO",
+      "color": "mediumseagreen",
+      "backgroundColor": "transparent",
+      "overviewRulerColor": "mediumseagreen"
+    },
+    {
+      "text": "NOTE",
+      "color": "gainsboro",
+      "backgroundColor": "transparent",
+      "overviewRulerColor": "gainsboro"
+    }
+  ]
+}

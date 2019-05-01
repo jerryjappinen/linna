@@ -1,0 +1,67 @@
+@mixin h1 {
+  @include display-font;
+  font-size: 1.6em;
+  letter-spacing: -0.015em;
+  line-height: $line-height-very-tight;
+  font-weight: $font-weight-headline;
+
+  @include over-tiny {
+    font-size: 1.8em;
+  }
+
+  @include over-small {
+    font-size: 2.2em;
+  }
+
+  @include over-medium {
+    font-size: 2.4em;
+  }
+
+  @include over-large {
+    font-size: 2.6em;
+  }
+
+}
+
+@mixin h2 {
+  @include strong;
+  @include display-font;
+  font-size: 1.4em;
+  line-height: $line-height-very-tight;
+}
+
+@mixin h3 {
+  @include strong;
+  font-size: inherit;
+}
+
+@mixin h4 {
+  @include strong;
+  @include uppercase;
+  @include small-font;
+  letter-spacing: 0.05em;
+}
+
+@mixin h5 {
+  @include h4;
+  @include discreet;
+}
+
+@mixin h6 {
+  @include uppercase;
+  font-size: inherit;
+  @include discreet;
+}
+
+@mixin label {
+  @include small-font;
+  @include uppercase;
+
+  @if $font-display {
+    font-family: $font-display;
+    font-weight: $font-weight-semibold;
+  } @else {
+    @include strong;
+  }
+
+}

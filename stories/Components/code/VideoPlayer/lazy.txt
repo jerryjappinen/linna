@@ -1,0 +1,6 @@
+<lazy-video-player
+  src="https://app.coverr.co/s3/mp4/Skater-in-the-Park.mp4"
+  title="Skater-in-the-Park"
+  :autoplay="true"
+  :loop="true"
+/>

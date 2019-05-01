@@ -1,0 +1,5 @@
+<!-- Render a normal image -->
+<bitmap
+  src="https://source.unsplash.com/1600x900/?nature"
+  title="Nature"
+/>

@@ -1,0 +1,5 @@
+<video-player
+  src="https://app.coverr.co/s3/mp4/Sunset-in-Flight.mp4"
+  title="Sunset-in-Flight"
+  :controls="true"
+/>

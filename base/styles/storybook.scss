@@ -1,0 +1,19 @@
+body {
+  background-color: transparent;
+}
+
+#root {
+  @include buffer;
+  @include border-box;
+}
+
+th,
+td {
+  border-width: 1px;
+
+  .c-code-block {
+    padding: 0;
+    border-width: 0;
+  }
+
+}

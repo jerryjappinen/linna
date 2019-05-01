@@ -1,0 +1,5 @@
+<!-- :block defaults to false -->
+<plain
+  :body="'<h1>This or that</h1>\n\nin Markdown <strong>or in HTML</strong>'"
+  :block="true"
+/>

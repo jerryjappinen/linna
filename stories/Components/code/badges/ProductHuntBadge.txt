@@ -1,0 +1,10 @@
+<product-hunt-badge
+  :post-id="postId"
+  :post-slug="postSlug"
+/>
+
+<product-hunt-badge
+  :post-id="postId"
+  :post-slug="postSlug"
+  theme="light"
+/>

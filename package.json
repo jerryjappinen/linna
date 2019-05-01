@@ -41,7 +41,14 @@
     "unlink:self": "npm unlink",
     "netlify": "npm run test && npm run build-storybook"
   },
-  "author": "",
+  "author": {
+    "name": "Jerry Jäppinen",
+    "url": "https://github.com/Eiskis"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Eiskis/linna.git"
+  },
   "license": "",
   "dependencies": {},
   "devDependencies": {

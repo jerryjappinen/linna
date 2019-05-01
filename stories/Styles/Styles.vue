@@ -21,7 +21,7 @@ export default {
     <h1>Styles</h1>
 
     <p>
-      <doc href="https://bitbucket.org/Eiskis/linna/src/master/styles/">
+      <doc href="https://github.com/Eiskis/linna/tree/master/styles">
         Source code on Bitbucket
       </doc>
     </p>

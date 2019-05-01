@@ -4,7 +4,7 @@ __⚠️⚠️⚠️ Don't use this library. It's not stable and no effort is ma
 
 Shared utility code and Vue component library.
 
-[Changelog](https://bitbucket.org/Eiskis/linna/commits/all)
+[Changelog](https://github.com/Eiskis/linna/commits/master)
 
 ## Setup
 

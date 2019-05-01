@@ -22,7 +22,11 @@ export default {
 
     <p>
       <doc href="https://github.com/Eiskis/linna/tree/master/styles">
-        Source code on Bitbucket
+        Source code for these styles
+      </doc>
+
+      <doc href="https://github.com/Eiskis/moabit/">
+        Source code for moabit
       </doc>
     </p>
 

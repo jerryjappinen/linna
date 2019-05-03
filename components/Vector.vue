@@ -5,10 +5,17 @@ export default {
   name: 'Vector',
 
   props: {
+
     src: {
       type: String,
       required: true
+    },
+
+    title: {
+      type: String,
+      required: false
     }
+
   },
 
   computed: {

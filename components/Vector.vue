@@ -22,10 +22,6 @@ export default {
 
     component () {
       return kebabCase('svg-' + this.src)
-    },
-
-    renderedTitle () {
-      return this.title ? this.title : null
     }
 
   }
@@ -38,6 +34,6 @@ export default {
     :is="component"
     class="c-vector"
     :class="'c-vector-' + src"
-    :title="renderedTitle"
+    :title="title"
   />
 </template>

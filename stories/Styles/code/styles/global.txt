@@ -4,18 +4,18 @@
 @import '~moabit/defaults';
 
 // Base styles from linna
-@import '~linna/styles/defaults/forms.scss';
-@import '~linna/styles/defaults/headings.scss';
-@import '~linna/styles/defaults/links.scss';
-@import '~linna/styles/defaults/lists.scss';
-@import '~linna/styles/defaults/tables.scss';
-@import '~linna/styles/defaults/tooltips.scss';
+@import '~linna/styles/defaults/forms';
+@import '~linna/styles/defaults/headings';
+@import '~linna/styles/defaults/links';
+@import '~linna/styles/defaults/lists';
+@import '~linna/styles/defaults/tables';
+@import '~linna/styles/defaults/tooltips';
 
 // @import further base styles of your own here
 
 // Utility styles
-@import '~linna/styles/defaults/bodytext.scss';
-@import '~linna/styles/defaults/control.scss';
-@import '~linna/styles/defaults/rhythm.scss';
+@import '~linna/styles/util/bodytext';
+@import '~linna/styles/util/control';
+@import '~linna/styles/util/rhythm';
 
 // @import further utility styles of your own here

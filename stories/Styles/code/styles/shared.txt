@@ -1,11 +1,13 @@
-// Shared SCSS tools from moabit
+// Variables
 @import '~moabit/variables';
+@import '~linna/styles/variables';
+// @import '../my-custom-styles/my-variables.scss';
+
+// Shared SCSS tools from moabit
+// Move these up to use them in your variables
 @import '~moabit/functions';
 @import '~moabit/mixins';
 
-// Base variables from linna
-@import '~linna/styles/variables.scss';
-
 // Mixins from linna
-@import '~linna/styles/mixins/shadow.scss';
-@import '~linna/styles/mixins/font-styles.scss';
+@import '~linna/styles/mixins/font-styles';
+@import '~linna/styles/mixins/shadow';

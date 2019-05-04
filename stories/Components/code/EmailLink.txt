@@ -1,0 +1,11 @@
+<email-link to="foo@bar.com">
+  foo@bar.com
+</email-link>
+
+<email-link
+  to="foo@bar.com"
+  subject="Hey there"
+  :body="'Hi!\n\nJust thought I\'d get in touch and '"
+>
+  foo@bar.com with prefilled content
+</email-link>

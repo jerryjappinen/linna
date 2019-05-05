@@ -1,18 +1,18 @@
 <script>
-import classes from 'linna/directives/classes'
+import classDirective from 'linna/directives/class'
 
 export default {
   name: 'MyComponent',
 
   directives: {
-    classes
+    'class': classDirective
   }
 }
 </script>
 
 <template>
   <div
-    v-classes="{
+    v-class="{
       'some-class': true,
       'another-class': false,
       'is-on-page': pageName,
@@ -20,7 +20,7 @@ export default {
     }"
   >
     <ul>
-      <li v-classes="selected">Foo</li>
+      <li v-class="selected">Foo</li>
     </ul>
   </div>
 </template>

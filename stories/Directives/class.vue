@@ -1,10 +1,10 @@
 <script>
 import Dump from '../../components/Dump'
 
-import classes from '../../directives/classes'
+import classDirective from '../../directives/class'
 import { normalizeBindingValue } from '../../util/composeClassnamesDirective'
 
-import codeSample from './code/classes.txt'
+import codeSample from './code/class.txt'
 
 export default {
   name: 'ClassPage',
@@ -14,7 +14,7 @@ export default {
   },
 
   directives: {
-    classes
+    'class': classDirective
   },
 
   data () {
@@ -85,14 +85,14 @@ export default {
 
 <template>
   <div
-    v-classes="value4"
+    v-class="value4"
     class="foo bar"
     :class="{
       bar: 'foo'
     }"
   >
 
-    <h1><code>classes</code> directive</h1>
+    <h1><code>v-class</code></h1>
 
     <p class="disclaimer">
       Like <code>:class</code> but prefixes class names. Works on any element within a component. Supports a custom prefix defined with <code>classesDirectivePrefix</code> and automatically adds the component name to the prefix as well.

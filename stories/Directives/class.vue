@@ -98,7 +98,7 @@ export default {
       Like <code>:class</code> but prefixes class names. Works on any element within a component. Supports a custom prefix defined with <code>classesDirectivePrefix</code> and automatically adds the component name to the prefix as well.
     </p>
 
-    <p>
+    <p v-class="'test'">
       If you want to use the same static prefix for all components throughout your application, register a global mixin that adds <code>classesDirectivePrefix</code> to every component.
     </p>
 

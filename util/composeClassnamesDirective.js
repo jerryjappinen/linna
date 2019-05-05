@@ -8,29 +8,36 @@ import {
   mapValues
 } from 'lodash'
 
-export const getPrefix = (vnode) => {
-  const staticPrefix = vnode.context.$vnode.componentInstance.classesDirectivePrefix
+export const isRoot = (vnode) => {
+  return !!(
+    vnode.parent &&
+    vnode.parent.tag &&
+    vnode.parent.tag === vnode.context.$vnode.tag
+  )
+}
+
+export const getStaticPrefix = (vnode) => {
+  return vnode.context.$vnode.componentInstance.classesDirectivePrefix
+}
+
+export const getComponentNamePrefix = (vnode) => {
 
   // In case component has a name
-  let componentNamePrefix = null
   const componentName = vnode.context.$vnode.tag.replace('vue-component-', '')
   const dashIndex = componentName.indexOf('-')
 
   if (dashIndex > 0 && componentName.length > dashIndex + 1) {
-    componentNamePrefix = componentName.substr(dashIndex + 1)
-  }
-
-  if (staticPrefix && componentNamePrefix) {
-    return staticPrefix + '-' + componentNamePrefix
-
-  } else if (componentNamePrefix) {
-    return componentNamePrefix
-
-  } else if (staticPrefix) {
-    return staticPrefix
+    return componentName.substr(dashIndex + 1)
   }
 
   return null
+}
+
+export const joinPrefixes = (...args) => {
+  const prefixes = [...args]
+  return kebabCase(prefixes.filter((prefix) => {
+    return !!prefix
+  }).join('-'))
 }
 
 export const normalizeBindingValue = (value, prefix) => {
@@ -76,6 +83,7 @@ export const composeClassname = (key, value) => {
 export const composeClassnames = (classnamesMap) => {
   const classnames = []
 
+  // Go through each class name, and add it to the list if it comes out as truthy
   for (const key in classnamesMap) {
     const classname = composeClassname(key, classnamesMap[key])
     if (classname) {

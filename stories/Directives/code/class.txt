@@ -20,7 +20,7 @@ export default {
     }"
   >
     <ul>
-      <li v-class="selected">Foo</li>
+      <li v-class="'selected'">Foo</li>
     </ul>
   </div>
 </template>

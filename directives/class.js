@@ -2,7 +2,10 @@ import { uniq } from 'lodash'
 
 import {
   composeClassnames,
-  getPrefix,
+  getComponentNamePrefix,
+  getStaticPrefix,
+  isRoot,
+  joinPrefixes,
   normalizeBindingValue
 } from '../util/composeClassnamesDirective'
 
@@ -11,7 +14,18 @@ import {
 const datasetKey = '__vueClassesDirectiveClasses'
 
 const updateState = (el, binding, vnode) => {
-  const newClassnames = composeClassnames(normalizeBindingValue(binding.value, getPrefix(vnode)))
+  const staticPrefix = getStaticPrefix(vnode)
+  const componentNamePrefix = getComponentNamePrefix(vnode)
+  const prefix = joinPrefixes(staticPrefix, componentNamePrefix)
+
+  const newClassnames = composeClassnames(
+    normalizeBindingValue(binding.value, prefix)
+  )
+
+  // Root component always gets the root class
+  if (componentNamePrefix && isRoot(vnode)) {
+    newClassnames.push(prefix)
+  }
 
   const oldClassnames = el[datasetKey]
     ? el[datasetKey].split(' ')

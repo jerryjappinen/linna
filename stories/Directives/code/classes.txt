@@ -1,0 +1,42 @@
+<script>
+import classes from 'linna/directives/classes'
+
+export default {
+  name: 'MyComponent',
+
+  directives: {
+    classes
+  }
+}
+</script>
+
+<template>
+  <div
+    v-classes="{
+      'some-class': true,
+      'another-class': false,
+      'is-on-page': pageName,
+      'count': listItemCount
+    }"
+  >
+    <ul>
+      <li v-classes="selected">Foo</li>
+    </ul>
+  </div>
+</template>
+
+<style>
+
+.my-component-some-class {
+  color: red;
+}
+
+.my-component-another-class {
+  color: blue;
+}
+
+.my-component-selected {
+  font-weight: strong;
+}
+
+</style>

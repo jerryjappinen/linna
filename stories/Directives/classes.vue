@@ -4,6 +4,8 @@ import Dump from '../../components/Dump'
 import classes from '../../directives/classes'
 import { normalizeBindingValue } from '../../util/composeClassnamesDirective'
 
+import codeSample from './code/classes.txt'
+
 export default {
   name: 'ClassPage',
 
@@ -17,6 +19,7 @@ export default {
 
   data () {
     return {
+      codeSample,
       interval: null,
 
       classesDirectivePrefix: 'c',
@@ -110,6 +113,8 @@ export default {
       >
     </p>
 
+    <html-block :source="codeSample" />
+
     <h3>Normalization</h3>
 
     <p>
@@ -147,31 +152,31 @@ export default {
 
 <style lang="scss">
 
-.c-classes-four-1 {
+.c-class-page-four-1 {
   .disclaimer {
     color: $red;
   }
 }
 
-.c-classes-four-2 {
+.c-class-page-four-2 {
   .disclaimer {
     color: $green;
   }
 }
 
-.c-classes-four-3 {
+.c-class-page-four-3 {
   .disclaimer {
     color: $blue;
   }
 }
 
-.c-classes-four-4 {
+.c-class-page-four-4 {
   .disclaimer {
     color: $purple;
   }
 }
 
-.c-classes-four-5 {
+.c-class-page-four-5 {
   .disclaimer {
     color: $orange;
   }

@@ -2,6 +2,7 @@
 import Dump from '../../components/Dump'
 
 import classDirective from '../../directives/class'
+import classDirectivePrefix from '../../mixins/classDirectivePrefix'
 import { normalizeBindingValue } from '../../util/composeClassnamesDirective'
 
 import codeSample from './code/class.txt'
@@ -17,12 +18,12 @@ export default {
     'class': classDirective
   },
 
+  mixins: [classDirectivePrefix],
+
   data () {
     return {
       codeSample,
       interval: null,
-
-      classesDirectivePrefix: 'c',
 
       prefix: 'MyPrefix',
       rawNumberValue: 1,

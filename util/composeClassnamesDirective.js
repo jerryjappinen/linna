@@ -17,7 +17,7 @@ export const isRoot = (vnode) => {
 }
 
 export const getStaticPrefix = (vnode) => {
-  return vnode.context.$vnode.componentInstance.classesDirectivePrefix
+  return vnode.context.$vnode.componentInstance.classDirectivePrefix
 }
 
 export const getComponentNamePrefix = (vnode) => {

@@ -9,12 +9,25 @@ import {
 } from 'lodash'
 
 export const getPrefix = (vnode) => {
+  const staticPrefix = vnode.context.$vnode.componentInstance.classesDirectivePrefix
+
+  // In case component has a name
+  let componentNamePrefix = null
   const componentName = vnode.context.$vnode.tag.replace('vue-component-', '')
   const dashIndex = componentName.indexOf('-')
 
-  // If component has a name
   if (dashIndex > 0 && componentName.length > dashIndex + 1) {
-    return 'c-' + componentName.substr(dashIndex + 1)
+    componentNamePrefix = componentName.substr(dashIndex + 1)
+  }
+
+  if (staticPrefix && componentNamePrefix) {
+    return staticPrefix + '-' + componentNamePrefix
+
+  } else if (componentNamePrefix) {
+    return componentNamePrefix
+
+  } else if (staticPrefix) {
+    return staticPrefix
   }
 
   return null
@@ -47,8 +60,6 @@ export const normalizeBindingValue = (value, prefix) => {
 
 // Compose final classname
 export const composeClassname = (key, value) => {
-
-  console.log('composeClassname', value)
 
   if (value) {
     if (isString(value) || isNumber(value)) {

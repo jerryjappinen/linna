@@ -1,9 +1,15 @@
 <script>
+import Dump from '../../components/Dump'
+
 import classes from '../../directives/classes'
 import { normalizeBindingValue } from '../../util/composeClassnamesDirective'
 
 export default {
-  name: 'Classes',
+  name: 'ClassPage',
+
+  components: {
+    Dump
+  },
 
   directives: {
     classes
@@ -11,9 +17,15 @@ export default {
 
   data () {
     return {
+      interval: null,
+
+      classesDirectivePrefix: 'c',
+
       prefix: 'MyPrefix',
       rawNumberValue: 1,
       stringValue: 'mod',
+
+      appliedClasses: null,
 
       value1: 'one',
       value2: 'one two three',
@@ -28,7 +40,7 @@ export default {
         return this.rawNumberValue
       },
       set (value) {
-        this.rawNumberValue = parseInt(value)
+        this.rawNumberValue = value ? parseInt(value) : 0
       }
     },
 
@@ -45,8 +57,23 @@ export default {
 
   },
 
+  mounted () {
+    this.interval = setInterval(this.getAppliedClasses, 100)
+  },
+
+  beforeDestroy () {
+    if (this.interval) {
+      clearInterval(this.interval)
+    }
+  },
+
   methods: {
-    normalizeBindingValue
+    normalizeBindingValue,
+
+    getAppliedClasses () {
+      this.appliedClasses = (this.$el ? this.$el.getAttribute('class') : null)
+    }
+
   }
 
 }
@@ -54,23 +81,39 @@ export default {
 </script>
 
 <template>
-  <div>
+  <div
+    v-classes="value4"
+    class="foo bar"
+    :class="{
+      bar: 'foo'
+    }"
+  >
 
     <h1><code>classes</code> directive</h1>
 
-    <p
-      v-classes="value4"
-    >
-      Like <code>:class</code> but prefixes class names.
+    <p class="disclaimer">
+      Like <code>:class</code> but prefixes class names. Works on any element within a component. Supports a custom prefix defined with <code>classesDirectivePrefix</code> and automatically adds the component name to the prefix as well.
     </p>
 
     <p>
-      <input v-model="prefix">
+      If you want to use the same static prefix for all components throughout your application, register a global mixin that adds <code>classesDirectivePrefix</code> to every component.
+    </p>
+
+    <dump :value="appliedClasses" />
+
+    <p>
+      <input v-model="classesDirectivePrefix">
       <input v-model="stringValue">
       <input
         v-model="numberValue"
         type="number"
       >
+    </p>
+
+    <h3>Normalization</h3>
+
+    <p>
+      <input v-model="prefix">
     </p>
 
     <table>
@@ -105,23 +148,33 @@ export default {
 <style lang="scss">
 
 .c-classes-four-1 {
-  color: $red;
+  .disclaimer {
+    color: $red;
+  }
 }
 
 .c-classes-four-2 {
-  color: $green;
+  .disclaimer {
+    color: $green;
+  }
 }
 
 .c-classes-four-3 {
-  color: $blue;
+  .disclaimer {
+    color: $blue;
+  }
 }
 
 .c-classes-four-4 {
-  color: $purple;
+  .disclaimer {
+    color: $purple;
+  }
 }
 
 .c-classes-four-5 {
-  color: $orange;
+  .disclaimer {
+    color: $orange;
+  }
 }
 
 </style>

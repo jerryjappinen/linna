@@ -17,10 +17,15 @@ const updateState = (el, binding, vnode) => {
     ? el[datasetKey].split(' ')
     : []
 
+  // Remove dynamic classnames from previous state
+  el.classList.remove(...oldClassnames)
+
+  // Update classnames that reflect the current state
+  el.classList.add(...newClassnames)
+
+  // Update list of classnames that this directive will control
   el[datasetKey] = uniq(oldClassnames.concat(newClassnames)).join(' ')
 
-  el.classList.remove(...oldClassnames)
-  el.classList.add(...newClassnames)
 }
 
 export default {

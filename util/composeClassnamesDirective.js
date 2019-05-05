@@ -14,7 +14,7 @@ export const getPrefix = (vnode) => {
 
   // If component has a name
   if (dashIndex > 0 && componentName.length > dashIndex + 1) {
-    return componentName.substr(dashIndex + 1)
+    return 'c-' + componentName.substr(dashIndex + 1)
   }
 
   return null
@@ -47,6 +47,8 @@ export const normalizeBindingValue = (value, prefix) => {
 
 // Compose final classname
 export const composeClassname = (key, value) => {
+
+  console.log('composeClassname', value)
 
   if (value) {
     if (isString(value) || isNumber(value)) {

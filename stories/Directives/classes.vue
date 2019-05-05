@@ -3,7 +3,7 @@ import classes from '../../directives/classes'
 import { normalizeBindingValue } from '../../util/composeClassnamesDirective'
 
 export default {
-  name: 'ClassesExample',
+  name: 'Classes',
 
   directives: {
     classes
@@ -12,7 +12,7 @@ export default {
   data () {
     return {
       prefix: 'MyPrefix',
-      numberValue: 1,
+      rawNumberValue: 1,
       stringValue: 'mod',
 
       value1: 'one',
@@ -22,6 +22,15 @@ export default {
   },
 
   computed: {
+
+    numberValue: {
+      get () {
+        return this.rawNumberValue
+      },
+      set (value) {
+        this.rawNumberValue = parseInt(value)
+      }
+    },
 
     value4 () {
       return {
@@ -92,3 +101,27 @@ export default {
 
   </div>
 </template>
+
+<style lang="scss">
+
+.c-classes-four-1 {
+  color: $red;
+}
+
+.c-classes-four-2 {
+  color: $green;
+}
+
+.c-classes-four-3 {
+  color: $blue;
+}
+
+.c-classes-four-4 {
+  color: $purple;
+}
+
+.c-classes-four-5 {
+  color: $orange;
+}
+
+</style>

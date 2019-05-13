@@ -68,7 +68,7 @@ export default {
 
 <template>
   <a
-    class="c-external-link"
+    class="c-email-link"
     v-bind="bindings"
     :href="href"
     @click="onClick"

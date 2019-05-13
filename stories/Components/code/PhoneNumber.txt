@@ -1,0 +1,14 @@
+<phone-number tel="+4912345678">
+  +49 1234 56 78
+</phone-number>
+
+<phone-number sms="+4912345678">
+  Text us at +49 1234 56 78
+</phone-number>
+
+<phone-number
+  sms="+4912345678"
+  body="Hi! Saw your web site, can you call me to get in touch?"
+>
+  Chat with us
+</phone-number>

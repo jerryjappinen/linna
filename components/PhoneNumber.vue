@@ -24,7 +24,7 @@ export default {
   computed: {
 
     href () {
-      return (this.sms || this.body ? 'tel' : 'sms') +
+      return (this.sms || this.body ? 'sms' : 'tel') +
         ':' +
         this.tel +
         (this.body

@@ -24,4 +24,19 @@ describe('forEachAsync', () => {
     expect(Math.round((diff) / 1000)).toEqual(Math.max(...durations) / 1000)
   })
 
+  it('should return object as object', async () => {
+    jest.setTimeout(6000)
+
+    const {
+      one,
+      four
+    } = await forEachAsync({
+      one: 1000,
+      four: 4000
+    }, wait)
+
+    expect(one).toEqual(true)
+    expect(four).toEqual(true)
+  })
+
 })

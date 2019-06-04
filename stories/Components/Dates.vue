@@ -1,13 +1,13 @@
 <script>
-import Date from '../../components/Date'
 import DateInterval from '../../components/DateInterval'
+import FormattedDate from '../../components/FormattedDate'
 import Month from '../../components/Month'
 
 export default {
 
   components: {
-    Date,
     DateInterval,
+    FormattedDate,
     Month
   }
 
@@ -21,15 +21,15 @@ export default {
     <h1>Date components</h1>
 
     <p>
-      Date: <date :date="new Date()" />
+      Date: <formatted-date :date="new Date()" />
     </p>
 
     <p>
-      Date: <date date="2018-01-01 22:22:22" />
+      Date: <formatted-date date="2018-01-01 22:22:22" />
     </p>
 
     <p>
-      Date: <date date="2019-02-02 22:22:22" />
+      Date: <formatted-date date="2019-02-02 22:22:22" />
     </p>
 
     <h3>Month</h3>

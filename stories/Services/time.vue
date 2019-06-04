@@ -1,5 +1,5 @@
 <script>
-import Date from '../../components/Date'
+import FormattedDate from '../../components/FormattedDate'
 import time from '../../services/time'
 
 import codeSample from './code/time.vue.txt'
@@ -7,7 +7,7 @@ import codeSample from './code/time.vue.txt'
 export default {
 
   components: {
-    Date
+    FormattedDate
   },
 
   data () {
@@ -46,7 +46,7 @@ export default {
     <h3>Example</h3>
 
     <p>
-      <date :date="current" /> {{ current }}
+      <formatted-date :date="current" /> {{ current }}
     </p>
 
     <html-block :source="codeSample" />

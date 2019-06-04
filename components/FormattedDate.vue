@@ -5,7 +5,7 @@ import formatDate from '../util/formatDate'
 import formatMachineReadableDate from '../util/formatMachineReadableDate'
 
 export default {
-  name: 'Date',
+  name: 'FormattedDate',
 
   props: {
 
@@ -66,7 +66,7 @@ export default {
 
 <template>
   <time
-    class="c-date"
+    class="c-formatted-date"
     :datetime="machineReadableDateString"
   >
     {{ prefix ? prefix + ' ' : '' }}{{ dateString }}

@@ -53,6 +53,11 @@ export default {
       default: null
     },
 
+    dpi: {
+      type: Number,
+      default: 2
+    },
+
     fit: {
       default: null,
       validator (input) {
@@ -88,11 +93,11 @@ export default {
       }
 
       if (this.width) {
-        params.push('w=' + this.width)
+        params.push('w=' + (this.dpi * this.width))
       }
 
       if (this.height) {
-        params.push('h=' + this.height)
+        params.push('h=' + (this.dpi * this.height))
       }
 
       return url + (params.length ? '?' + params.join('&') : '')

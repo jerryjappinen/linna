@@ -21,8 +21,8 @@ export default new Vue({
     if (hasWindow()) {
 
       this.listener = debounce((event) => {
-        this.x = event.offsetX
-        this.y = event.offsetY
+        this.x = event.clientX
+        this.y = event.clientY
       }, debounceDelay)
 
       window.addEventListener('mousemove', this.listener)

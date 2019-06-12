@@ -17,7 +17,7 @@ export default new Vue({
     }
   },
 
-  mounted () {
+  created () {
     if (hasWindow()) {
 
       this.listener = debounce((event) => {

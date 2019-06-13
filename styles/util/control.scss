@@ -6,7 +6,7 @@
 // Default feedback for hit areas
 // NOTE: might be better not to set anything here since this might need a lot of overriding in many places
 .control-enabled {
-  @include cursor-pointer;
+  @include pointer;
 
   // Prevent user select when double clicking or swiping etc.
   &.control-mouse-down {

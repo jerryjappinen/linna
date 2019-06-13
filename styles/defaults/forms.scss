@@ -17,7 +17,7 @@ button {
   border-style: solid;
   border-width: 0;
   background-color: transparent;
-  @include cursor-pointer;
+  @include pointer;
 
   @include transition-hover-active;
   @include transition-properties-common;

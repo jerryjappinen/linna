@@ -282,7 +282,7 @@ export default {
 }
 
 .c-click-button-enabled {
-  @include cursor-pointer;
+  @include pointer;
 
   &:active {
     // @include scale(0.975);

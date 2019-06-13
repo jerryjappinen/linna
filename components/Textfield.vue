@@ -320,7 +320,7 @@ export default {
 }
 
 .c-textfield-button {
-  @include cursor-pointer;
+  @include pointer;
   @include round;
   right: 0.4em;
   padding: 0.25em;

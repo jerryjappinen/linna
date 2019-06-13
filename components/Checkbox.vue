@@ -100,7 +100,7 @@ export default {
 // }
 
 .control-enabled {
-  @include cursor-pointer;
+  @include pointer;
 
   .c-checkbox-enabled {
     @include hover-shadow-tight-rest($dark);

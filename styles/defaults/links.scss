@@ -1,7 +1,7 @@
 a {
   color: inherit;
   display: inline-block;
-  @include cursor-pointer;
+  @include pointer;
 
   @include transition-properties-common;
   @include transition-hover-active;

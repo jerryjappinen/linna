@@ -140,13 +140,13 @@ export default {
 }
 
 .c-dropdown {
-  @include cursor-pointer;
+  @include pointer;
 }
 
 .c-dropdown-select {
   @include border-box;
   @include block;
-  @include cursor-pointer;
+  @include pointer;
   width: 100%;
   padding-right: 2em;
   margin-right: -1em;

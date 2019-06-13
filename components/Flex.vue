@@ -4,11 +4,11 @@ export default {
 
   props: {
 
-    inline: {
+    center: {
       default: false
     },
 
-    center: {
+    inline: {
       default: false
     },
 
@@ -25,11 +25,11 @@ export default {
   <div
     class="c-flex"
     :class="{
-      'c-buttons-inline': inline,
-      'c-buttons-center': center,
-      'c-buttons-justify': !!justify,
-      'c-buttons-justify-start': (justify === 'start'),
-      'c-buttons-justify-end': (justify === 'end')
+      'c-flex-inline': inline,
+      'c-flex-center': center,
+      'c-flex-justify': !!justify,
+      'c-flex-justify-start': (justify === 'start'),
+      'c-flex-justify-end': (justify === 'end')
     }"
   >
     <slot />
@@ -44,6 +44,10 @@ export default {
 
 .c-flex-center {
   @include flex-center;
+}
+
+.c-flex-inline {
+  @include inline-flex;
 }
 
 .c-flex-justify {

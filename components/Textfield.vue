@@ -386,7 +386,7 @@ export default {
 .c-textfield-input {
   @include relative;
   @include border-box;
-  @include cursor-inherit;
+  @include inherit-cursor;
   width: 100%;
   // outline: 0;
   z-index: 1;

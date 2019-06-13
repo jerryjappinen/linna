@@ -278,7 +278,7 @@ export default {
 // States
 
 .c-click-button-disabled {
-  @include cursor-inherit;
+  @include inherit-cursor;
 }
 
 .c-click-button-enabled {

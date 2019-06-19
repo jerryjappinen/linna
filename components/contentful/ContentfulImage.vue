@@ -30,7 +30,6 @@ export default {
 
   components: {
     Bitmap
-
   },
 
   props: {
@@ -56,6 +55,11 @@ export default {
     dpi: {
       type: Number,
       default: 2
+    },
+
+    format: {
+      type: String,
+      default: null
     },
 
     fit: {
@@ -86,6 +90,10 @@ export default {
         params.push('fit=' + snakeCase(this.fit))
       } else if (this.width && this.height) {
         params.push('fit=' + 'thumb')
+      }
+
+      if (this.format) {
+        params.push('fm=' + this.format.toLowerCase())
       }
 
       if (this.focus) {

@@ -5,7 +5,7 @@ import ContentfulImage from './ContentfulImage'
 import ContentfulVideo from './ContentfulVideo'
 
 export default {
-  name: 'Asset',
+  name: 'ContentfulAsset',
 
   components: {
     ContentfulImage,

@@ -3,7 +3,7 @@
 import renderRichText from './renderRichText'
 
 export default {
-  name: 'RichText',
+  name: 'ContentfulRichText',
 
   props: {
 

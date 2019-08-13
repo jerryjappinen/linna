@@ -1,4 +1,6 @@
-import { isPlainObject, snakeCase } from 'lodash'
+import { isPlainObject } from 'lodash'
+
+import getContentfulImageUrl from '../util/getContentfulImageUrl'
 
 const normalizeOptions = (input) => {
 
@@ -24,33 +26,6 @@ const normalizeOptions = (input) => {
   return options
 }
 
-// NOTE: this should match ContentfulImage.vue
-// https://www.contentful.com/developers/docs/references/images-api/#/reference/resizing-&-cropping/change-the-resizing-behavior
-const composeImageUrl = (options) => {
-  const params = []
-
-  // Set fit & resize behavior easily
-  if (options.fit) {
-    params.push('fit=' + snakeCase(options.fit))
-  }
-
-  if (options.focus) {
-    params.push('f=' + snakeCase(options.focus))
-  }
-
-  if (options.width) {
-    params.push('w=' + options.width)
-  }
-
-  if (options.height) {
-    params.push('h=' + options.height)
-  }
-
-  return options && options.image
-    ? options.image.fields.file.url + (params.length ? '?' + params.join('&') : '')
-    : null
-}
-
 const setBackgroundImage = (element, url) => {
 
   if (!element.style) {
@@ -66,7 +41,7 @@ const setBackgroundImage = (element, url) => {
 }
 
 const updateState = (element, value) => {
-  setBackgroundImage(element, composeImageUrl(normalizeOptions(value)))
+  setBackgroundImage(element, getContentfulImageUrl(normalizeOptions(value)))
 }
 
 // <div v-contentful-background-image="image" />

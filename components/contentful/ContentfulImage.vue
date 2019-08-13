@@ -1,30 +1,10 @@
 <script>
 import { includes, snakeCase } from 'lodash'
+import getContentfulImageUrl from '../../util/getContentfulImageUrl'
 
 import Bitmap from '../Bitmap'
 
-const fitValues = [
-  'pad',
-  'fill',
-  'scale',
-  'crop',
-  'thumb'
-]
-
-const focusValues = [
-  'face',
-  'faces',
-  'center',
-  'top',
-  'right',
-  'left',
-  'bottom',
-  'top_right',
-  'top_left',
-  'bottom_right',
-  'bottom_left'
-]
-
+// https://www.contentful.com/developers/docs/references/images-api/#/reference/resizing-&-cropping/change-the-resizing-behavior
 export default {
   name: 'ContentfulImage',
 
@@ -39,16 +19,23 @@ export default {
       default: null
     },
 
+    url: {
+      type: String,
+      required: false
+    },
+
     image: {
       type: Object,
-      required: true
+      required: false
     },
 
     width: {
+      type: [Number, String],
       default: null
     },
 
     height: {
+      type: [Number, String],
       default: null
     },
 
@@ -63,17 +50,13 @@ export default {
     },
 
     fit: {
-      default: null,
-      validator (input) {
-        return !input || includes(fitValues, snakeCase(input))
-      }
+      type: String,
+      default: null
     },
 
     focus: {
-      default: null,
-      validator (input) {
-        return !input || includes(focusValues, snakeCase(input))
-      }
+      type: String,
+      default: null
     }
 
   },
@@ -81,34 +64,15 @@ export default {
   computed: {
 
     src () {
-      const url = this.image.fields.file.url
-      const params = []
-
-      // Set fit & resize behavior easily
-      // https://www.contentful.com/developers/docs/references/images-api/#/reference/resizing-&-cropping/change-the-resizing-behavior
-      if (this.fit) {
-        params.push('fit=' + snakeCase(this.fit))
-      } else if (this.width && this.height) {
-        params.push('fit=' + 'thumb')
-      }
-
-      if (this.format) {
-        params.push('fm=' + this.format.toLowerCase())
-      }
-
-      if (this.focus) {
-        params.push('f=' + snakeCase(this.focus))
-      }
-
-      if (this.width) {
-        params.push('w=' + (this.dpi * this.width))
-      }
-
-      if (this.height) {
-        params.push('h=' + (this.dpi * this.height))
-      }
-
-      return url + (params.length ? '?' + params.join('&') : '')
+      return getContentfulImageUrl({
+        url: this.url,
+        image: this.image,
+        fit: this.fit || (this.width && this.height ? 'thumb' : null),
+        format: this.format,
+        focus: this.focus,
+        width: this.width,
+        height: this.height
+      })
     }
 
   }
@@ -120,6 +84,6 @@ export default {
   <bitmap
     class="c-contentful-image"
     :src="src"
-    :title="title || image.fields.description || image.fields.title"
+    :title="title || image.fields.description || ((image && image.fields) ? image.fields.title : null)"
   />
 </template>

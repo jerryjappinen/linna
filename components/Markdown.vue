@@ -27,8 +27,11 @@ export default {
   computed: {
 
     bodyHtml () {
-      const render = this.inline ? markdownParser.renderInline : markdownParser.render
-      return this.body ? render(this.body) : null
+      return this.body
+        ? this.inline
+          ? markdownParser.renderInline(this.body)
+          : markdownParser.render(this.body)
+        : null
     }
 
   }

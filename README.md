@@ -33,7 +33,7 @@ Detailed dependency map:
 | `DelayedBitmap` | | `vue-images-loaded` |
 | `LazyBitmap` | | `lozad`, `vue-images-loaded` |
 | `LazyVideoPlayer` | | `lozad` |
-| `Markdown` | | `marked` |
+| `Markdown` | | `markdown-it` |
 | `Month` | `date-fns` | |
 | `toPlainText` | | `remove-markdown` |
 | **/directives** | |

@@ -1,24 +1,34 @@
 <script>
-import marked from 'marked'
+import MarkdownIt from 'markdown-it'
 
-const markedOptions = {
-  silent: true
-}
+// https://github.com/markdown-it/markdown-it
+const markdownParser = new MarkdownIt({
+  html: true,
+  linkify: true,
+  typographer: false
+})
 
 export default {
   name: 'Markdown',
 
   props: {
+
     body: {
       type: String,
       required: true
+    },
+
+    inline: {
+      default: false
     }
+
   },
 
   computed: {
 
     bodyHtml () {
-      return this.body ? marked(this.body, markedOptions) : null
+      const render = this.inline ? markdownParser.renderInline : markdownParser.render
+      return this.body ? render(this.body) : null
     }
 
   }

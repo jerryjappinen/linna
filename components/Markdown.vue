@@ -1,6 +1,10 @@
 <script>
 import marked from 'marked'
 
+const markedOptions = {
+  silent: true
+}
+
 export default {
   name: 'Markdown',
 
@@ -13,8 +17,8 @@ export default {
 
   computed: {
 
-    html () {
-      return this.body ? marked(this.body) : ''
+    bodyHtml () {
+      return this.body ? marked(this.body, markedOptions) : null
     }
 
   }
@@ -24,8 +28,20 @@ export default {
 
 <template>
   <!-- eslint-disable vue/no-v-html -->
-  <div
-    class="c-markdown"
-    v-html="html"
-  />
+  <div class="c-markdown">
+
+    <div
+      v-if="bodyHtml"
+      class="c-markdown-content c-markdown-body"
+      v-html="bodyHtml"
+    />
+
+    <div
+      v-else
+      class="c-markdown-content c-markdown-placeholder"
+    >
+      <slot />
+    </div>
+
+  </div>
 </template>

@@ -19,7 +19,6 @@ export default {
 <template>
   <vector
     class="c-icon"
-    :class="'c-icon-' + src"
     :src="src"
     :title="title"
   />

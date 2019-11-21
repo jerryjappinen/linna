@@ -21,7 +21,7 @@ export default {
   computed: {
 
     component () {
-      return kebabCase('svg-' + this.src)
+      return kebabCase(this.src)
     }
 
   }
@@ -33,7 +33,7 @@ export default {
   <component
     :is="component"
     class="c-vector"
-    :class="'c-vector-' + src"
+    :class="'c-vector-' + component"
     :title="title"
   />
 </template>

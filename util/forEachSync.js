@@ -5,7 +5,5 @@ export default async (array, asyncCallback) => {
     results.push(await asyncCallback(item))
   }
 
-  console.log('Done!')
-
   return results
 }

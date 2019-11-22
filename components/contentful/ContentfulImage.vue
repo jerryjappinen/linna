@@ -1,5 +1,4 @@
 <script>
-import { includes, snakeCase } from 'lodash'
 import getContentfulImageUrl from '../../util/getContentfulImageUrl'
 
 import Bitmap from '../Bitmap'

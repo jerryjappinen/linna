@@ -45,8 +45,11 @@ export default {
     const pageTypes = this.pageTypes || (this.page ? this.page.fields.types : null)
 
     // Page title
-    if (pageTitle) {
-      const title = pageTitle + (!includes(pageTitle, this.siteTitle) ? ' – ' + this.siteTitle : '')
+    let title = pageTitle
+    if (title) {
+      title += !includes(pageTitle, this.siteTitle)
+        ? ' – ' + this.siteTitle
+        : ''
 
       meta.push({
         hid: 'twitter:title',
@@ -171,7 +174,7 @@ export default {
 
     // Return all meta content for Nuxt
     return {
-      title,
+      title: title || pageTitle,
       meta,
       link: links,
       script: scripts,

@@ -62,6 +62,20 @@ export default {
 
   computed: {
 
+    resolvedWidth () {
+      if (this.dpi) {
+        return this.dpi * this.width
+      }
+      return this.width
+    },
+
+    resolvedHeight () {
+      if (this.dpi) {
+        return this.dpi * this.height
+      }
+      return this.height
+    },
+
     src () {
       return getContentfulImageUrl({
         url: this.url,
@@ -69,8 +83,8 @@ export default {
         fit: this.fit || (this.width && this.height ? 'thumb' : null),
         format: this.format,
         focus: this.focus,
-        width: this.width,
-        height: this.height
+        width: this.resolvedWidth,
+        height: this.resolvedHeight
       })
     }
 

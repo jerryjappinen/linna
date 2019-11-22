@@ -31,7 +31,7 @@ export default {
 
 <template>
   <component
-    :is="component"
+    :is="'svg-' + component"
     class="c-vector"
     :class="'c-vector-' + component"
     :title="title"

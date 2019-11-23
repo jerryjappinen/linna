@@ -24,6 +24,14 @@ export default {
       return this.title ? ('' + this.title).trim() : this.title
     }
 
+  },
+
+  methods: {
+
+    onClick (event) {
+      this.$emit('click', event)
+    }
+
   }
 
 }
@@ -35,5 +43,6 @@ export default {
     :src="src"
     :alt="normalizedTitle"
     :title="normalizedTitle"
+    @click="onClick"
   >
 </template>

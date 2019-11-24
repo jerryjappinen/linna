@@ -94,6 +94,10 @@
 
 }
 
+.bodytext-with-line-breaks {
+  white-space: pre-line;
+}
+
 .bodytext-discreet {
   @include discreet;
 }

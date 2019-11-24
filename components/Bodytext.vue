@@ -6,9 +6,15 @@ export default {
   name: 'Bodytext',
 
   props: {
+
     discreet: {
       default: false
+    },
+
+    lineBreaks: {
+      default: false
     }
+
   },
 
   methods: {
@@ -79,7 +85,9 @@ export default {
     class="c-bodytext bodytext"
     :class="{
       'bodytext-discreet': discreet,
-      'c-bodytext-discreet': discreet
+      'c-bodytext-discreet': discreet,
+      'bodytext-with-line-breaks': lineBreaks,
+      'c-bodytext-with-line-breaks': lineBreaks
     }"
     @click="onClick"
   >

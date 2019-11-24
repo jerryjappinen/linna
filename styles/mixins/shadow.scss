@@ -9,7 +9,7 @@
 // Custom shadows
 
 @mixin hover-shadow ($color: $dark, $width: 5px, $opacity: 0.25) {
-  box-shadow: 0 0 0 $width color-translucent($color, $opacity);
+  box-shadow: 0 0 0 $width translucent($color, $opacity);
 }
 
 @mixin hover-shadow-rest ($color: $dark, $width: 5px) {

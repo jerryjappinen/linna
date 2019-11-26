@@ -18,6 +18,7 @@ export default {
     href: {},
     to: {},
     mailto: {},
+    tel: {},
     external: {},
     noIndex: {},
     submit: {},
@@ -51,6 +52,7 @@ export default {
     :href="href"
     :to="to"
     :mailto="mailto"
+    :tel="tel"
     :external="external"
     :no-index="noIndex"
     :submit="submit"

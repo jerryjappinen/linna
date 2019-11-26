@@ -31,6 +31,11 @@ export default {
       default: null
     },
 
+    tel: {
+      type: String,
+      default: null
+    },
+
     external: {
       default: null
     },
@@ -73,7 +78,7 @@ export default {
 
     component () {
 
-      if (this.href || this.mailto) {
+      if (this.href || this.mailto || this.tel) {
         return 'a'
       }
 
@@ -94,6 +99,10 @@ export default {
       // Email address
       if (this.mailto) {
         bindings.href = 'mailto:' + this.mailto
+
+      // Button
+      } else if (this.tel) {
+        bindings.href = 'tel:' + this.tel
 
       // Button
       } else if (this.component === 'button') {

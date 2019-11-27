@@ -151,7 +151,14 @@ export default {
   padding-right: 2em;
   margin-right: -1em;
   z-index: 1;
+  -webkit-appearance: none;
+  -moz-appearance: none;
   appearance: none;
+
+  &::-ms-expand {
+    display: none;
+  }
+
 }
 
 .c-dropdown-icon {

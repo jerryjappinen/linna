@@ -62,7 +62,7 @@ module.exports = async ({ config }) => {
 
   // Load raw data
   config.module.rules.push({
-    test: /\.(txt|json)$/i,
+    test: /\.(txt)$/i,
     use: 'raw-loader'
   })
 

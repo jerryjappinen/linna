@@ -1,8 +1,8 @@
 @mixin h1 {
-  @include display-font;
+  @include headline-font;
   font-size: 1.6em;
   letter-spacing: -0.015em;
-  line-height: $line-height-very-tight;
+  line-height: $line-height-headline;
   font-weight: $font-weight-headline;
 
   @include over-tiny {
@@ -25,7 +25,7 @@
 
 @mixin h2 {
   @include strong;
-  @include display-font;
+  @include headline-font;
   font-size: 1.4em;
   line-height: $line-height-very-tight;
 }
@@ -57,8 +57,8 @@
   @include small-font;
   @include uppercase;
 
-  @if $font-display {
-    font-family: $font-display;
+  @if $font-headline {
+    font-family: $font-headline;
     font-weight: $font-weight-semibold;
   } @else {
     @include strong;

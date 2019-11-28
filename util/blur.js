@@ -1,5 +1,7 @@
+import windowExists from './windowExists'
+
 export default () => {
-  if (typeof window !== 'undefined') {
+  if (windowExists()) {
     window.document.activeElement.blur()
   }
 }

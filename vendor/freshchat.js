@@ -1,3 +1,5 @@
+import windowExists from '../util/windowExists'
+
 // See reference: https://developers.freshchat.com/
 const widgetConfig = {
   cssNames: {
@@ -14,7 +16,7 @@ const widgetConfig = {
 }
 
 const getChat = () => {
-  if (typeof window !== 'undefined' && window.fcWidget) {
+  if (windowExists() && window.fcWidget) {
     return window.fcWidget
   }
   return null

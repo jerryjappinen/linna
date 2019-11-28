@@ -1,5 +1,7 @@
+import windowExists from './windowExists'
+
 export default (urlOrElement) => {
-  if (typeof window !== 'undefined') {
+  if (windowExists()) {
 
     // Check if URL or element is pointing to external domain
     const internalRegex = new RegExp(

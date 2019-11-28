@@ -3,6 +3,8 @@ import Vue from 'vue'
 
 import styles from '../config/styles'
 
+import windowExists from '../util/windowExists'
+
 // Scroll position or dimensions are updated at most once per this amount of ms
 const debounceDelay = 10
 
@@ -50,13 +52,13 @@ export default new Vue({
   },
 
   created () {
-    if (typeof window !== 'undefined') {
+    if (windowExists()) {
       this.onCreated()
     }
   },
 
   beforeDestroy () {
-    if (typeof window !== 'undefined') {
+    if (windowExists()) {
       this.onDestroy()
     }
   },

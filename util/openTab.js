@@ -1,5 +1,7 @@
+import windowExists from './windowExists'
+
 export default (url) => {
-  if (typeof window !== 'undefined') {
+  if (windowExists()) {
     window.open(url, '_blank')
   }
 }

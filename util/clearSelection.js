@@ -1,6 +1,8 @@
+import windowExists from './windowExists'
+
 // Clear user's selection
 export default () => {
-  if (typeof window !== 'undefined') {
+  if (windowExists()) {
 
     if (
       window.document &&

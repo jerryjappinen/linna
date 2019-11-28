@@ -1,5 +1,7 @@
+import windowExists from './windowExists'
+
 export default (keepCache) => {
-  if (typeof window !== 'undefined') {
+  if (windowExists()) {
     window.location.reload(!keepCache)
   }
 }

@@ -1,9 +1,7 @@
 import { debounce } from 'lodash'
 import Vue from 'vue'
 
-const hasWindow = () => {
-  return typeof window !== 'undefined'
-}
+import windowExists from '../util/windowExists'
 
 const debounceDelay = 10
 
@@ -18,7 +16,7 @@ export default new Vue({
   },
 
   created () {
-    if (hasWindow()) {
+    if (windowExists()) {
 
       this.listener = debounce((event) => {
         this.x = event.clientX
@@ -31,7 +29,7 @@ export default new Vue({
   },
 
   beforeDestroy () {
-    if (hasWindow() && this.listener) {
+    if (windowExists() && this.listener) {
       window.removeEventListener('moudemove', this.listener)
     }
   }

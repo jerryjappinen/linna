@@ -1,6 +1,8 @@
 import { differenceInCalendarDays } from 'date-fns'
 import { debounce, isDate } from 'lodash'
 
+import windowExists from '../util/windowExists'
+
 const prefix = 'vue-persist-'
 const expirationCutoff = 14 // days
 
@@ -29,7 +31,7 @@ export default {
     // Store serialized data into localStorage when it changes (throttled)
     // NOTE: need to use `function` so `this` won't get messed up
     persist: debounce(function (data) {
-      if (typeof window !== 'undefined') {
+      if (windowExists()) {
         if (this.persistKey) {
 
           localStorage.setItem(
@@ -66,7 +68,7 @@ export default {
   methods: {
 
     _loadPersistedData () {
-      if (typeof window !== 'undefined') {
+      if (windowExists()) {
         if (this.persistKey && this.persist) {
           const key = prefix + this.persistKey
 

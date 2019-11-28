@@ -1,7 +1,9 @@
+import windowExists from '../util/windowExists'
+
 export default {
 
   init (hotjarId, hotjarSecondaryKey) {
-    if (typeof window !== 'undefined' && document) {
+    if (windowExists() && document) {
       return ((h, o, t, j, a, r) => {
 
         h.hj = h.hj || function () {

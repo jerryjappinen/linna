@@ -121,8 +121,10 @@ export default {
     <table>
 
       <tr>
-        <td>Live duration to current time</td>
-        <td><duration :date="new Date('2019-11-29 02:22:22')" /></td>
+        <td>Duration to current time</td>
+        <td>
+          <duration :date="new Date('2019-11-29 02:22:22')" />
+        </td>
       </tr>
 
       <tr>
@@ -132,6 +134,13 @@ export default {
             :date="new Date('2018-01-01 22:22:22')"
             :end-date="new Date('2019-02-02 22:22:22')"
           />
+        </td>
+      </tr>
+
+      <tr>
+        <td>Future</td>
+        <td>
+          <duration :date="new Date('2021-01-01 22:22:22')" />
         </td>
       </tr>
 
@@ -158,7 +167,9 @@ export default {
 
       <tr>
         <td>Live duration to current time</td>
-        <td><live-duration :date="new Date('2019-11-29 02:22:22')" /></td>
+        <td>
+          <live-duration :date="new Date('2019-11-29 02:22:22')" />
+        </td>
       </tr>
 
     </table>

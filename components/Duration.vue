@@ -1,6 +1,5 @@
 <script>
 import { differenceInCalendarDays } from 'date-fns'
-import { isNumber } from 'lodash'
 
 import formatDate from '../util/formatDate'
 
@@ -30,24 +29,11 @@ export default {
 
     suffix: {
       default: null
-    },
-
-    cutoff: {
-      default: 0
     }
 
   },
 
   computed: {
-
-    // Parent can easily disable duration if it's under a week
-    // This usually makes sense when duration is used in combination with timestamp
-    normalizedCutoff () {
-      if (isNumber(this.cutoff)) {
-        return this.cutoff
-      }
-      return this.cutoff ? 6 : 0
-    },
 
     diff () {
       return Math.abs(
@@ -75,22 +61,17 @@ export default {
 
     dateTimeString () {
 
-      if (this.diff >= this.normalizedCutoff) {
-        const string = (this.diff ? this.diff : 1) + ' day' + (
-          this.diff > 1
-            ? 's'
-            : ''
-        )
+      const string = (this.diff ? this.diff : 1) + ' day' + (
+        this.diff > 1
+          ? 's'
+          : ''
+      )
 
-        return [
-          this.prefix ? this.prefix : '',
-          string,
-          this.suffix ? this.suffix : ''
-        ].join('')
-
-      }
-
-      return ''
+      return [
+        this.prefix ? this.prefix : '',
+        string,
+        this.suffix ? this.suffix : ''
+      ].join('')
     }
 
   }
@@ -100,7 +81,7 @@ export default {
 
 <template>
   <span
-    :class="classes"
+    class="c-duration"
     :data-tooltip="detailsString"
   >{{ dateTimeString }}</span>
 </template>

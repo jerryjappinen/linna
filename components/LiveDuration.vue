@@ -1,8 +1,14 @@
 <script>
 import time from '../services/time'
 
+import Duration from './Duration'
+
 export default {
   name: 'LiveDuration',
+
+  components: {
+    Duration
+  },
 
   props: {
     date: {},

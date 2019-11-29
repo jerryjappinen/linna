@@ -56,12 +56,5 @@
 @mixin label {
   @include small-font;
   @include uppercase;
-
-  @if $font-headline {
-    font-family: $font-headline;
-    font-weight: $font-weight-semibold;
-  } @else {
-    @include strong;
-  }
-
+  @include strong;
 }

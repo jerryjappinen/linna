@@ -1,13 +1,13 @@
 <script>
 import ContentfulImageBase from './ContentfulImageBase'
 
-import Bitmap from '../Bitmap'
+import DelayedBitmap from '../DelayedBitmap'
 
 export default {
   name: 'ContentfulImage',
 
   components: {
-    Bitmap
+    DelayedBitmap
   },
 
   ...ContentfulImageBase
@@ -16,8 +16,8 @@ export default {
 </script>
 
 <template>
-  <bitmap
-    class="c-contentful-image"
+  <delayed-bitmap
+    class="c-contentful-delayed-image"
     :src="src"
     :title="resolvedTitle"
   />

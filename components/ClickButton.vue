@@ -232,7 +232,7 @@ export default {
   left: 0;
 
   ~ .c-click-button-content {
-    @include pad-loose-left;
+    padding-left: calc(1em + #{$pad-tight-horizontal});
   }
 
 }
@@ -241,7 +241,7 @@ export default {
   right: 0;
 
   ~ .c-click-button-content {
-    @include pad-loose-right;
+    padding-right: calc(1em + #{$pad-tight-horizontal});
   }
 
 }

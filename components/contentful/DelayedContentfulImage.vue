@@ -3,22 +3,28 @@ import ContentfulImageBase from './ContentfulImageBase'
 
 import DelayedBitmap from '../DelayedBitmap'
 
+const base = {
+  ...ContentfulImageBase
+}
+
+base.props.hidden = {}
+
 export default {
-  name: 'ContentfulImage',
+  name: 'DelayedContentfulImage',
 
   components: {
     DelayedBitmap
   },
 
-  ...ContentfulImageBase
-
+  ...base
 }
 </script>
 
 <template>
   <delayed-bitmap
-    class="c-contentful-delayed-image"
+    class="c-delayed-contentful-image"
     :src="src"
     :title="resolvedTitle"
+    :hidden="hidden"
   />
 </template>

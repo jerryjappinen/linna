@@ -39,14 +39,22 @@ export default new Vue({
 
 
 
-    // Matches mixin-viewport.scss
+    // Matches moabit/mixins/screen/devices.scss
 
-    isMobile () {
-      return this.width < styles.breakpointMedium
+    isPhone () {
+      return this.width < styles.breakpointPhone
+    },
+
+    isTablet () {
+      return this.width >= styles.breakpointPhone
+    },
+
+    isUnderDesktop () {
+      return this.width < styles.breakpointTablet
     },
 
     isDesktop () {
-      return this.width >= styles.breakpointMedium
+      return this.width >= styles.breakpointTablet
     }
 
   },

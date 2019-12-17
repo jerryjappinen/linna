@@ -24,8 +24,8 @@ export default {
 
 <template>
   <image-component
-    :src="focus"
-    :title="hidden"
+    :src="src"
+    :title="title"
     :hidden="hidden"
   />
 </template>

@@ -42,11 +42,11 @@ export default new Vue({
     // Matches moabit/mixins/screen/devices.scss
 
     isPhone () {
-      return this.width < styles.breakpointPhone
+      return this.width <= styles.breakpointPhone
     },
 
     isTablet () {
-      return this.width >= styles.breakpointPhone
+      return this.width > styles.breakpointPhone
     },
 
     isUnderDesktop () {

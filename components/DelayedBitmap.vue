@@ -32,9 +32,15 @@ export default {
   },
 
   methods: {
+
     onLoaded () {
       this.isHidden = false
+    },
+
+    onClick (event) {
+      this.$emit('click', event)
     }
+
   }
 
 }
@@ -50,6 +56,7 @@ export default {
     }"
     :src="src"
     :title="title"
+    @click="onClick"
   />
 </template>
 

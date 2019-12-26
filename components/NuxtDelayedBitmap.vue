@@ -17,6 +17,12 @@ export default {
     src: {},
     title: {},
     hidden: {}
+  },
+
+  methods: {
+    onClick (event) {
+      this.$emit('click', event)
+    }
   }
 
 }
@@ -27,5 +33,6 @@ export default {
     :src="src"
     :title="title"
     :hidden="hidden"
+    @click="onClick"
   />
 </template>

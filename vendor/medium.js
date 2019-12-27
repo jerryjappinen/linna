@@ -21,6 +21,11 @@ export default () => {
     async fetchFeed (mediumUserName) {
       const feed = await parser.parseURL('https://medium.com/feed/@' + mediumUserName)
       return feed.items ? filter(feed.items, feedItemsFilter) : []
+    },
+
+    async fetchPublication (mediumPublicationName) {
+      const feed = await parser.parseURL('https://medium.com/feed/' + mediumPublicationName)
+      return feed.items ? filter(feed.items, feedItemsFilter) : []
     }
 
   }

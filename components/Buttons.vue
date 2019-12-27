@@ -4,7 +4,7 @@ export default {
 
   props: {
 
-    grid: {
+    fill: {
       default: false
     },
 
@@ -22,10 +22,8 @@ export default {
     class="c-buttons"
     :class="{
       'c-buttons-center': center,
-      'c-buttons-grid': grid,
-      'c-buttons-grid-center': grid && center,
-      'c-buttons-flex': !grid,
-      'c-buttons-flex-center': !grid && center
+      'c-buttons-fill': fill,
+      'c-buttons-fill-center': fill && center
     }"
   >
     <slot />
@@ -34,20 +32,26 @@ export default {
 
 <style lang="scss">
 
-.c-buttons-flex {
+.c-buttons {
   @include flex;
   @include flex-center;
 
   > * {
-    + * {
-      margin-left: $pad-loose-horizontal;
+    &:not(:last-child) {
+      margin-right: $pad-loose-horizontal;
     }
   }
 
 }
 
-.c-buttons-flex-center {
+.c-buttons-center {
   justify-content: center;
+}
+
+.c-buttons-fill {
+  > * {
+    @include flex-grow;
+  }
 }
 
 </style>

@@ -1,0 +1,162 @@
+<script>
+export default {
+  name: 'Tweet',
+
+  props: {
+    tweet: {
+      type: Object,
+      required: true
+    }
+  }
+
+}
+</script>
+
+<template>
+  <div class="c-tweet">
+    <blockquote
+      class="c-tweet-placeholder twitter-tweet no-rhythm"
+      data-dnt="true"
+    >
+
+      <div class="c-tweet-placeholder-content">
+
+        <div class="c-tweet-link">
+          <a :href="'https://twitter.com/' + tweet.user.screen_name">
+            See {{ tweet.user.screen_name }}'s other Tweets
+          </a>
+        </div>
+
+        <a
+          :href="'https://twitter.com/' + tweet.user.screen_name"
+          class="c-tweet-user"
+        >
+
+          <img
+            :src="tweet.user.profile_image_url_https"
+            class="c-tweet-user-image"
+          >
+
+          <div>
+            <div>
+              <strong>{{ tweet.user.name }}</strong>
+            </div>
+            <div class="c-tweet-info">
+              @{{ tweet.user.screen_name }}
+            </div>
+          </div>
+
+        </a>
+
+        <div class="c-tweet-content">
+          <p
+            lang="en"
+            dir="ltr"
+          >
+            {{ tweet.text }}
+          </p>
+          <div class="c-tweet-info">
+            {{ tweet.user.name }} (@{{ tweet.user.screen_name }})
+            <a :href="'https://twitter.com/' + tweet.user.screen_name + '/status/' + tweet.id_str">
+              {{ tweet.created_at }}
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </blockquote>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8" />
+  </div>
+</template>
+
+<style lang="scss">
+
+.c-tweet {
+  @include keep-center;
+  width: 520px;
+  max-width: 100%;
+
+  .twitter-tweet {
+    width: 100% !important;
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+
+}
+
+.c-tweet-placeholder {
+  @include border-box;
+  max-width: 100%;
+  width: 500px;
+  min-width: 220px;
+  margin-left: auto;
+  margin-right: auto;
+  border-width: 1px;
+  border-radius: 5px;
+  border-color: #e1e8ed;
+  color: #1c2022;
+  background-color: #fff;
+  font-size: 16px;
+  line-height: 1.4;
+  font-family: Helvetica, Roboto, "Segoe UI", Calibri, sans-serif;
+  font-style: normal;
+}
+
+.c-tweet-placeholder-content {
+  @include flex;
+  @include flex-vertical;
+}
+
+.c-tweet-user,
+.c-tweet-content,
+.c-tweet-link {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.c-tweet-content,
+.c-tweet-user {
+  padding-top: 20px;
+}
+
+.c-tweet-user {
+  @include flex;
+}
+
+.c-tweet-user-image {
+  @include flex-fixed;
+  width: 36px;
+  height: 36px;
+  margin-right: 9px;
+  border-radius: 36px;
+}
+
+.c-tweet-content {
+  padding-bottom: 12px;
+  border-color: #e1e8ed;
+  border-bottom-width: 1px;
+
+  .c-tweet-info {
+    margin-top: 10px;
+  }
+
+}
+
+.c-tweet-info,
+.c-tweet-link {
+  font-size: 14px;
+}
+
+.c-tweet-info {
+  color: #697882;
+}
+
+.c-tweet-link {
+  order: 2;
+  padding-top: 9px;
+  padding-bottom: 9px;
+  color: #2b7bb9;
+}
+
+</style>

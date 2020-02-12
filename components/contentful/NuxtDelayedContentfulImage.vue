@@ -1,7 +1,7 @@
 <script>
 import ContentfulImage from './ContentfulImage'
 
-import isClient from '../util/isClient'
+import isClient from '../../util/isClient'
 
 let imageComponent = ContentfulImage
 if (isClient()) {

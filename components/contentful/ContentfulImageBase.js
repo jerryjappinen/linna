@@ -48,7 +48,10 @@ export default {
     focus: {
       type: String,
       default: null
-    }
+    },
+
+    naturalWidth: {},
+    naturalHeight: {}
 
   },
 

@@ -1,4 +1,5 @@
 <script>
+// FIXME: make this universal (should work with Nuxt)
 import imagesLoaded from 'vue-images-loaded'
 
 import Bitmap from './Bitmap'
@@ -15,6 +16,8 @@ export default {
   },
 
   props: {
+    naturalWidth: {},
+    naturalHeight: {},
     src: {},
     title: {},
 
@@ -54,6 +57,8 @@ export default {
       'c-delayed-bitmap-hidden': isHidden || hidden,
       'c-delayed-bitmap-visible': !(isHidden || hidden)
     }"
+    :natural-width="naturalWidth"
+    :natural-height="naturalHeight"
     :src="src"
     :title="title"
     @click="onClick"

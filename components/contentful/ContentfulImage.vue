@@ -18,6 +18,8 @@ export default {
 <template>
   <bitmap
     class="c-contentful-image"
+    :natural-width="naturalWidth"
+    :natural-height="naturalHeight"
     :src="src"
     :title="resolvedTitle"
   />

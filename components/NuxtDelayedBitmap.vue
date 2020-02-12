@@ -1,8 +1,10 @@
 <script>
 import Bitmap from './Bitmap'
 
+import isClient from '../util/isClient'
+
 let ImageComponent = Bitmap
-if (process.browser) {
+if (isClient()) {
   ImageComponent = require('./DelayedBitmap').default
 }
 

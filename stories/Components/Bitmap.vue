@@ -34,10 +34,6 @@ export default {
 
     <h1>Bitmap components</h1>
 
-    <p>
-      LazyBitmap won't work with Nuxt.
-    </p>
-
     <div class="grid">
 
       <html-block :source="BitmapCodeSample" />
@@ -60,6 +56,17 @@ export default {
       />
 
     </div>
+
+    <p>
+      Use <code>natural-width</code> and <code>natural-height</code> to set natural dimensions if you know them.
+    </p>
+
+    <bitmap
+      :src="randomImageBaseUrl + '?nature'"
+      :natural-width="1600"
+      :natural-height="900"
+      title="Nature"
+    />
 
     <h3>Scroll down to see examples out of viewport</h3>
 

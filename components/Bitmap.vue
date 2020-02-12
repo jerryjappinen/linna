@@ -14,6 +14,16 @@ export default {
     title: {
       type: String,
       required: false
+    },
+
+    naturalWidth: {
+      type: [Number, String],
+      default: null
+    },
+
+    naturalHeight: {
+      type: [Number, String],
+      default: null
     }
 
   },
@@ -40,8 +50,10 @@ export default {
 <template>
   <img
     class="c-bitmap"
-    :src="src"
     :alt="normalizedTitle"
+    :width="naturalWidth"
+    :height="naturalHeight"
+    :src="src"
     :title="normalizedTitle"
     @click="onClick"
   >

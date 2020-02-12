@@ -1,8 +1,13 @@
 <script>
-// FIXME: won't work with Nuxt's server-side rendering
-import lozad from 'lozad'
-
 import DelayedBitmap from './DelayedBitmap'
+
+import isClient from '../util/isClient'
+
+// NOTE: only works client-side
+let lozad = null
+if (isClient()) {
+  lozad = require('lozad').default
+}
 
 export default {
   name: 'LazyBitmap',
@@ -24,16 +29,39 @@ export default {
     }
   },
 
+  computed: {
+
+    attributes () {
+
+      if (lozad) {
+        return {
+          'data-src': this.src,
+          'data-srcset': this.srcSet
+        }
+      }
+
+      return {
+        src: this.src,
+        srcset: this.srcSet
+      }
+    }
+
+  },
+
   mounted () {
 
-    this.$el.addEventListener('load', this.onLoaded)
+    if (lozad) {
 
-    this.$once('hook:destroyed', () => {
-      this.$el.removeEventListener('load', this.onLoaded)
-    })
+      this.$el.addEventListener('load', this.onLoaded)
 
-    this.observer = lozad(this.$el)
-    this.observer.observe()
+      this.$once('hook:destroyed', () => {
+        this.$el.removeEventListener('load', this.onLoaded)
+      })
+
+      this.observer = lozad(this.$el)
+      this.observer.observe()
+
+    }
 
   },
 
@@ -50,13 +78,12 @@ export default {
 
 <template>
   <delayed-bitmap
+    v-bind="attributes"
     class="c-lazy-bitmap"
     :class="{
       'c-lazy-bitmap-loaded': isLoaded,
       'c-lazy-bitmap-not-loaded': !isLoaded
     }"
-    :data-src="src"
-    :data-srcset="srcSet"
     :title="title"
     :hidden="!isLoaded"
   />

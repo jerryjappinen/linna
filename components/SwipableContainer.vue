@@ -1,10 +1,10 @@
 <script>
 import { isNumber } from 'lodash'
 
-const isBrowser = process ? !!process.browser : true
+import isClient from '../util/isClient'
 
 const clientOnlyComponents = {}
-if (isBrowser) {
+if (isClient()) {
   clientOnlyComponents.Flickity = require('vue-flickity').default
 
   // https://github.com/drewjbartlett/vue-flickity/issues/12
@@ -110,7 +110,7 @@ export default {
 
     component () {
 
-      if (isBrowser) {
+      if (isClient()) {
         return 'flickity'
       }
 

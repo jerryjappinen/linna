@@ -1,8 +1,10 @@
 <script>
 import ContentfulImage from './ContentfulImage'
 
+import isClient from '../util/isClient'
+
 let imageComponent = ContentfulImage
-if (process.browser) {
+if (isClient()) {
   imageComponent = require('./DelayedContentfulImage').default
 }
 
@@ -19,6 +21,8 @@ export default {
     image: {},
     width: {},
     height: {},
+    naturalWidth: {},
+    naturalHeight: {},
     dpi: {},
     format: {},
     fit: {},
@@ -36,6 +40,8 @@ export default {
     :image="image"
     :width="width"
     :height="height"
+    :natural-width="naturalWidth"
+    :natural-height="naturalHeight"
     :dpi="dpi"
     :format="format"
     :fit="fit"

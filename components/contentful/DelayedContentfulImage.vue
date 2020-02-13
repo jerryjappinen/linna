@@ -23,8 +23,8 @@ export default {
 <template>
   <delayed-bitmap
     class="c-delayed-contentful-image"
-    :natural-width="naturalWidth"
-    :natural-height="naturalHeight"
+    :natural-width="naturalWidth || width"
+    :natural-height="naturalHeight || height"
     :src="src"
     :title="resolvedTitle"
     :hidden="hidden"

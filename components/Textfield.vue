@@ -1,7 +1,5 @@
 <script>
-import { isArray, isNumber, isString } from 'lodash'
-
-import ownValue from '../mixins/ownValue'
+import { isArray, isNaN, isNumber, isString } from 'lodash'
 
 import Fade from './Fade'
 import Icon from './Icon'
@@ -13,8 +11,6 @@ export default {
     Fade,
     Icon
   },
-
-  mixins: [ownValue],
 
   props: {
 
@@ -85,10 +81,11 @@ export default {
   },
 
   data () {
-
     let originalValue = ''
+
     if (isString(this.value)) {
       originalValue += this.value
+
     } else if (isNumber(this.value)) {
       originalValue = 0 + this.value
     }
@@ -100,6 +97,24 @@ export default {
   },
 
   computed: {
+
+    ownValue: {
+      get () {
+        return this.value
+      },
+      set (value) {
+
+        if (this.type === 'number') {
+          const parsed = parseFloat(value)
+
+          if (isNumber(parsed) && !isNaN(parsed)) {
+            return this.$emit('update:value', parsed)
+          }
+        }
+
+        return this.$emit('update:value', value)
+      }
+    },
 
     isEmpty () {
       return !(this.ownValue && this.ownValue.length)

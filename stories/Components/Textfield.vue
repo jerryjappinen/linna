@@ -186,19 +186,21 @@ export default {
               :value.sync="numberValue"
               type="number"
             />
+            {{ typeof numberValue }}
           </td>
           <td>
             <textfield
               :value.sync="emailValue"
               type="email"
             />
+            {{ typeof emailValue }}
           </td>
           <td>
             <textfield
               :value.sync="monthValue"
               type="month"
             />
-            <br>{{ monthValue }}
+            <br>{{ monthValue }} ({{ typeof monthValue }})
           </td>
         </tr>
 

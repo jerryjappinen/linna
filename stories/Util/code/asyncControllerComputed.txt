@@ -1,0 +1,33 @@
+data () {
+  return {
+    asyncController: asyncController()
+  }
+},
+
+computed: {
+
+  albums () {
+    return this.asyncController.responses[0]
+  },
+
+  posts () {
+    return this.asyncController.responses[1]
+  },
+
+  users () {
+    return this.asyncController.responses[2]
+  }
+
+},
+
+methods: {
+
+  async getMultiple () {
+    await this.asyncController.send(
+      get(this.albumsUrl),
+      get(this.postsUrl),
+      get(this.usersUrl)
+    )
+  }
+
+}

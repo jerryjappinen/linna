@@ -1,0 +1,22 @@
+data () {
+  return {
+    asyncController: asyncController()
+  }
+},
+
+methods: {
+
+  async getUsers () {
+    this.users = await this.asyncController.send(get(this.usersUrl))
+  },
+
+  async getMultiple () {
+    await this.asyncController.send(
+      get(this.albumsUrl),
+      get(this.postsUrl),
+      get(this.usersUrl),
+      get(this.userUrl)
+    )
+  }
+
+}

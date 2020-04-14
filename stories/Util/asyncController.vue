@@ -97,6 +97,16 @@ export default {
 
     <js-block source="import asyncController from 'linna/util/asyncController'" />
 
+    <h3>Dependencies</h3>
+
+    <p>
+      lodash, Vue
+    </p>
+
+
+
+    <h2>Usage</h2>
+
     <p>
       Do one or multiple single requests.
     </p>

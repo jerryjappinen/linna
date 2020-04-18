@@ -10,8 +10,6 @@ import { kebabCase, includes, map } from 'lodash'
 // @param `pageDescription` (optional)
 // @param `pageCoverImage` (optional)
 // @param `pageCoverImageUrl` (optional)
-// @param `pageInvertedHeader` (optional)
-// @param `pageInvertedFooter` (optional)
 // @param `pageIcon` (optional)
 // @param `pageStyle` (optional)
 // @param `pageTitle` (optional)
@@ -163,16 +161,11 @@ export default (siteTitle, canonicalBaseUrl, disableScriptSanitization) => {
 
 
       // Print standardised class names for body that can be used for styling
-      const headerStyle = (this.pageInvertedHeader ? 'inverted' : 'regular')
-      const footerStyle = (this.pageInvertedFooter ? 'inverted' : 'regular')
       let bodyClasses = [
         'body-dark-mode',
         'body-page-' + kebabCase(this.$route.name),
         'body-layout-' + kebabCase(this.$options.layout ? this.$options.layout : 'default')
       ]
-
-      bodyClasses.push('body-page-style-' + headerStyle + '-header')
-      bodyClasses.push('body-page-style-' + footerStyle + '-footer')
 
       if (pageStyle) {
         bodyClasses.push('body-page-style-' + kebabCase(pageStyle))

@@ -10,6 +10,7 @@ export default {
         height: viewport.height,
         scrollX: viewport.scrollX,
         scrollY: viewport.scrollY,
+        hasObtrusiveScrollbars: viewport.hasObtrusiveScrollbars,
         isScrolled: viewport.isScrolled,
         isScrolledX: viewport.isScrolledX,
         isLandscape: viewport.isLandscape,

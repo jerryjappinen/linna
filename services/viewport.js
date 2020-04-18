@@ -3,6 +3,7 @@ import Vue from 'vue'
 
 import styles from '../config/styles'
 
+import detectObtrusiveScrollbars from '../util/detectObtrusiveScrollbars'
 import windowExists from '../util/windowExists'
 
 // Scroll position or dimensions are updated at most once per this amount of ms
@@ -12,6 +13,7 @@ export default new Vue({
 
   data () {
     return {
+      hasObtrusiveScrollbars: false,
       width: 0,
       height: 0,
       scrollX: 0,
@@ -77,6 +79,10 @@ export default new Vue({
     onCreated () {
       this.$_updateDimensions()
       this.$_updateScrollValues()
+
+      if (detectObtrusiveScrollbars()) {
+        this.hasObtrusiveScrollbars = true
+      }
 
       window.addEventListener('resize', this.onResize)
       window.addEventListener('scroll', this.onScroll)

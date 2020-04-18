@@ -1,4 +1,4 @@
-import windowExists from 'linna/util/windowExists'
+import windowExists from './windowExists'
 
 export default (css) => {
 

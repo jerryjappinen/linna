@@ -1,5 +1,5 @@
-import createStyleElement from 'linna/util/createStyleElement'
-import windowExists from 'linna/util/windowExists'
+import createStyleElement from './createStyleElement'
+import windowExists from './windowExists'
 
 // Detection test
 const testClassname = 'obtrusive-scrollbar-test-123'

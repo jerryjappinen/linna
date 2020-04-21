@@ -321,6 +321,10 @@ export default {
   @include relative;
 }
 
+.c-textfield-inline {
+  @include inline-block;
+}
+
 .c-textfield-block {
   @include block;
 }

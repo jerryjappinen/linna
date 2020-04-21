@@ -145,6 +145,10 @@ export default {
   @include pointer;
 }
 
+.c-dropdown-inline {
+  @include inline-block;
+}
+
 .c-dropdown-block {
   @include block;
 }

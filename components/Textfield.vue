@@ -76,6 +76,10 @@ export default {
 
     hex: {
       default: null
+    },
+
+    inline: {
+      default: false
     }
 
   },
@@ -225,10 +229,12 @@ export default {
 </script>
 
 <template>
-  <div
+  <span
     class="c-textfield"
     :class="{
       ['c-textfield-' + (icon || '')]: !!icon,
+      'c-textfield-inline': !!inline,
+      'c-textfield-block': !inline,
       'c-textfield-multiline': !!multiline,
       'c-textfield-not-multiline': !multiline,
       'c-textfield-has-icon': !!icon,
@@ -306,13 +312,17 @@ export default {
 
     </template>
 
-  </div>
+  </span>
 </template>
 
 <style lang="scss">
 
 .c-textfield {
   @include relative;
+}
+
+.c-textfield-block {
+  @include block;
 }
 
 .c-textfield-button,

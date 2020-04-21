@@ -77,10 +77,12 @@ export default {
 </script>
 
 <template>
-  <div
+  <span
     class="c-dropdown"
     :class="{
-      'c-dropdown-disabled': !!disabled
+      'c-dropdown-disabled': !!disabled,
+      'c-dropdown-inline': !!inline,
+      'c-dropdown-block': !inline
     }"
   >
 
@@ -128,7 +130,7 @@ export default {
       src="chevron-down"
     />
 
-  </div>
+  </span>
 </template>
 
 <style lang="scss">
@@ -141,6 +143,10 @@ export default {
 
 .c-dropdown {
   @include pointer;
+}
+
+.c-dropdown-block {
+  @include block;
 }
 
 .c-dropdown-select {

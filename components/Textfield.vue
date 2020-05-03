@@ -80,6 +80,10 @@ export default {
 
     inline: {
       default: false
+    },
+
+    disabled: {
+      default: false
     }
 
   },
@@ -240,7 +244,8 @@ export default {
       'c-textfield-has-icon': !!icon,
       'c-textfield-empty': isEmpty,
       'c-textfield-filled': !isEmpty,
-      'c-textfield-focused': isFocused
+      'c-textfield-focused': isFocused,
+      'c-textfield-disabled': disabled
     }"
   >
 
@@ -253,6 +258,7 @@ export default {
       :autocomplete="autocomplete"
       :placeholder="placeholder"
       :required="!!required"
+      :disabled="!!disabled"
       class="c-textfield-input"
       @focus="onFocus"
       @blur="onBlur"
@@ -272,6 +278,7 @@ export default {
       :autocomplete="autocomplete"
       :placeholder="placeholder"
       :required="!!required"
+      :disabled="!!disabled"
       class="c-textfield-input"
       @focus="onFocus"
       @blur="onBlur"

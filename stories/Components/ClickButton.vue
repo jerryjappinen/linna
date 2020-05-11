@@ -38,6 +38,15 @@ export default {
 
       <div>
         <click-button
+          to="/"
+          @click="onClick"
+        >
+          Default
+        </click-button>
+      </div>
+
+      <div>
+        <click-button
           :loading="true"
           @click="onClick"
         >

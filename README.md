@@ -1,8 +1,6 @@
 # Linna
 
-__⚠️⚠️⚠️ Don't use this library. It's not stable and no effort is made for this to work for general use.__
-
-Shared utility code and Vue component library.
+Shared utility code and Vue component library. Not maintained for the general audience.
 
 [Changelog](https://github.com/Eiskis/linna/commits/master)
 

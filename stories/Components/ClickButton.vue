@@ -38,6 +38,15 @@ export default {
 
       <div>
         <click-button
+          href="/"
+          @click.prevent="onClick"
+        >
+          Href with binding
+        </click-button>
+      </div>
+
+      <div>
+        <click-button
           to="/"
           @click="onClick"
         >

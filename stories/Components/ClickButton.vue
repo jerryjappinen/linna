@@ -41,7 +41,7 @@ export default {
           to="/"
           @click="onClick"
         >
-          Default
+          Router link with binding
         </click-button>
       </div>
 

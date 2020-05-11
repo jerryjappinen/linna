@@ -89,6 +89,10 @@ export default {
       return 'button'
     },
 
+    isRouterLink () {
+      return !!(this.component === 'router-link' || this.component === 'nuxt-link')
+    },
+
     bindings () {
       const bindings = {}
 
@@ -140,15 +144,6 @@ export default {
       if (!this.disabled) {
         this.$emit('click', event)
       }
-    },
-
-    onNativeClick () {
-      if (
-        this.component === 'router-link' ||
-        this.component === 'nuxt-link'
-      ) {
-        this.onClick()
-      }
     }
 
   }
@@ -169,7 +164,7 @@ export default {
     }"
     :disabled="disabled"
     @click="onClick"
-    @click.native="onNativeClick"
+    @click.native="isRouterLink ? onClick : undefined"
   >
 
     <fade>

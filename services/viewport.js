@@ -23,6 +23,14 @@ export default new Vue({
 
   computed: {
 
+    centerX () {
+      return this.width / 2
+    },
+
+    centerY () {
+      return this.height / 2
+    },
+
     isScrolled () {
       return this.scrollY > 0
     },

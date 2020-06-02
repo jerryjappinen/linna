@@ -36,8 +36,9 @@ export default {
 
   methods: {
 
-    onLoaded () {
+    onLoaded (event) {
       this.isHidden = false
+      this.$emit('loaded', event)
     },
 
     onClick (event) {

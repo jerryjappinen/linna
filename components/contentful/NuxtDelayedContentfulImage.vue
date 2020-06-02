@@ -47,5 +47,6 @@ export default {
     :fit="fit"
     :focus="focus"
     :hidden="hidden"
+    v-on="$listeners"
   />
 </template>

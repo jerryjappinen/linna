@@ -28,5 +28,6 @@ export default {
     :src="src"
     :title="resolvedTitle"
     :hidden="hidden"
+    v-on="$listeners"
   />
 </template>

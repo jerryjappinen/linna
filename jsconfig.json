@@ -3,6 +3,7 @@
     "./.storybook/**/*",
     "./base/**/*",
     "./components/**/*",
+    "./controllers/**/*",
     "./config/**/*",
     "./directives/**/*",
     "./log/**/*",
@@ -11,7 +12,6 @@
     "./spec/**/*",
     "./stories/**/*",
     "./styles/**/*",
-    "./util/**/*",
     "./vendor/**/*"
   ],
   "exclude": [

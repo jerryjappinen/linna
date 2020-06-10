@@ -1,7 +1,7 @@
 <script>
 import axios from 'axios'
 
-import asyncController from '../../util/asyncController'
+import asyncController from '../../controllers/asyncController'
 
 import codeSample from './code/asyncController.txt'
 import codeSampleComputed from './code/asyncControllerComputed.txt'
@@ -95,7 +95,7 @@ export default {
 
     <h1><code>asyncController()</code></h1>
 
-    <js-block source="import asyncController from 'linna/util/asyncController'" />
+    <js-block source="import asyncController from 'linna/controllers/asyncController'" />
 
     <h3>Dependencies</h3>
 

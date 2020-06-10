@@ -1,6 +1,6 @@
 <script>
-import tryPromises from '../../util/tryPromises'
-import wait from '../../util/wait'
+import tryPromises from 'linna-util/tryPromises'
+import wait from 'linna-util/wait'
 
 import codeSample from './code/tryPromises.txt'
 
@@ -49,7 +49,7 @@ export default {
 
     <h1><code>async tryPromises([promise1, promise2, ...])</code></h1>
 
-    <js-block source="import tryPromises from 'linna/util/tryPromises'" />
+    <js-block source="import tryPromises from 'linna-util/tryPromises'" />
 
     <p>
       Wait for multiple promises in parallel, but always resolve even if some promises fail. Failed promises resolve with <code>undefined</code>. Wraps <code>Promise.all</code> but doesn't throw an error.

@@ -47,7 +47,7 @@ Detailed dependency map:
 | `formatMachineReadableDateTime` | `date-fns` | |
 | `formatMonth` | `date-fns` | |
 | `toPlainText` | | `remove-markdown` |
-| **/util** | | |
+| **/vendor** | | |
 | `calendly` | `axios`, `lodash` | |
 | `contentful` | `axios`, `lodash` | |
 | `freshchat` | | Freshchat runtime SDK |

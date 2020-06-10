@@ -7,7 +7,7 @@ import {
   isRoot,
   joinPrefixes,
   normalizeBindingValue
-} from '../util/composeClassnamesDirective'
+} from 'linna-util//composeClassnamesDirective'
 
 
 

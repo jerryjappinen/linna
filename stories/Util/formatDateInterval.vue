@@ -1,5 +1,5 @@
 <script>
-import formatDateInterval from '../../util/formatDateInterval'
+import formatDateInterval from 'linna-util/formatDateInterval'
 
 import codeSample from './code/formatDateInterval.txt'
 
@@ -34,7 +34,7 @@ export default {
 
     <h1><code>formatDateInterval(olderDate, newerDate)</code></h1>
 
-    <js-block source="import formatDateInterval from 'linna/util/formatDateInterval'" />
+    <js-block source="import formatDateInterval from 'linna-util/formatDateInterval'" />
 
     <h3>Dependencies</h3>
 

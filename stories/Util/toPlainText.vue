@@ -1,5 +1,5 @@
 <script>
-import toPlainText from '../../util/toPlainText'
+import toPlainText from 'linna-util/toPlainText'
 
 export default {
 
@@ -31,7 +31,7 @@ export default {
 
     <h1><code>toPlainText(string)</code></h1>
 
-    <js-block source="import toPlainText from 'linna/util/toPlainText'" />
+    <js-block source="import toPlainText from 'linna-util/toPlainText'" />
 
     <table>
       <tr>

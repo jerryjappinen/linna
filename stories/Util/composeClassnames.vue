@@ -1,5 +1,5 @@
 <script>
-import composeClassnames from '../../util/composeClassnames'
+import composeClassnames from 'linna-util/composeClassnames'
 
 import codeSample from './code/composeClassnames.txt'
 
@@ -44,7 +44,7 @@ export default {
 
     <h1><code>composeClassnames</code></h1>
 
-    <js-block source="import composeClassnames from 'linna/util/composeClassnames'" />
+    <js-block source="import composeClassnames from 'linna-util/composeClassnames'" />
 
     <p>
       Compose scoped, kebab-cased classnames easily. Pass component name as prefix to use this effectively in your components.

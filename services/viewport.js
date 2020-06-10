@@ -3,8 +3,8 @@ import Vue from 'vue'
 
 import styles from '../config/styles'
 
-import detectObtrusiveScrollbars from '../util/detectObtrusiveScrollbars'
-import windowExists from '../util/windowExists'
+import detectObtrusiveScrollbars from 'linna-util//detectObtrusiveScrollbars'
+import windowExists from 'linna-util//windowExists'
 
 // Scroll position or dimensions are updated at most once per this amount of ms
 const debounceDelay = 10

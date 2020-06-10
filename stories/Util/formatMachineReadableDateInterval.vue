@@ -1,5 +1,5 @@
 <script>
-import formatMachineReadableDateTime from '../../util/formatMachineReadableDateTime'
+import formatMachineReadableDateTime from 'linna-util/formatMachineReadableDateTime'
 
 export default {
 
@@ -18,7 +18,7 @@ export default {
 
     <h1><code>formatMachineReadableDateTime(date)</code></h1>
 
-    <js-block source="import formatMachineReadableDateTime from 'linna/util/formatMachineReadableDateTime'" />
+    <js-block source="import formatMachineReadableDateTime from 'linna-util/formatMachineReadableDateTime'" />
 
     <h3>Dependencies</h3>
 

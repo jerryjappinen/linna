@@ -1,5 +1,5 @@
 <script>
-import getGravatarImageUrl from '../../util/getGravatarImageUrl.js'
+import getGravatarImageUrl from 'linna-util/getGravatarImageUrl.js'
 
 export default {
 

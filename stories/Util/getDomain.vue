@@ -1,5 +1,5 @@
 <script>
-import getDomain from '../../util/getDomain'
+import getDomain from 'linna-util/getDomain'
 
 const url = 'https://foo.bar.com:8080/video/sadkhehsdaksd?thisnadthat=123&foo=bar'
 
@@ -24,7 +24,7 @@ export default {
 
     <h1><code>getDomain(url)</code></h1>
 
-    <js-block source="import getDomain from 'linna/util/getDomain'" />
+    <js-block source="import getDomain from 'linna-util/getDomain'" />
 
     <table>
       <tbody>

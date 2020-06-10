@@ -1,5 +1,5 @@
 <script>
-import formatFileSize from '../../util/formatFileSize'
+import formatFileSize from 'linna-util/formatFileSize'
 
 const fileSizes = [
   1,
@@ -49,7 +49,7 @@ export default {
 
     <h1><code>formatFileSize(bytes)</code></h1>
 
-    <js-block source="import formatFileSize from 'linna/util/formatFileSize'" />
+    <js-block source="import formatFileSize from 'linna-util/formatFileSize'" />
 
     <p>Format a file size in bytes to be human readable.</p>
 

@@ -1,4 +1,4 @@
-import getContentfulImageUrl from '../../util/getContentfulImageUrl'
+import getContentfulImageUrl from 'linna-util/getContentfulImageUrl'
 
 // https://www.contentful.com/developers/docs/references/images-api/#/reference/resizing-&-cropping/change-the-resizing-behavior
 export default {

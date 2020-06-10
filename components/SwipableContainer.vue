@@ -1,7 +1,7 @@
 <script>
 import { isNumber } from 'lodash'
 
-import isClient from '../util/isClient'
+import isClient from 'linna-util//isClient'
 
 const clientOnlyComponents = {}
 if (isClient()) {

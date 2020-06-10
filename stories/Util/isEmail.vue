@@ -1,5 +1,5 @@
 <script>
-import isEmail from '../../util/isEmail'
+import isEmail from 'linna-util/isEmail'
 
 export default {
 
@@ -26,7 +26,7 @@ export default {
 
     <h1><code>isEmail(string)</code></h1>
 
-    <js-block source="import isEmail from 'linna/util/isEmail'" />
+    <js-block source="import isEmail from 'linna-util/isEmail'" />
 
     <p>
       <input v-model="demo">

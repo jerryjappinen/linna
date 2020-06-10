@@ -1,5 +1,5 @@
 <script>
-import toPlainText from '../util/toPlainText'
+import toPlainText from 'linna-util//toPlainText'
 
 export default {
   name: 'Plain',

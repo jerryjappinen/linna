@@ -1,5 +1,5 @@
 <script>
-import formatDate from '../../util/formatDate'
+import formatDate from 'linna-util/formatDate'
 
 export default {
 
@@ -18,7 +18,7 @@ export default {
 
     <h1><code>formatDate(date)</code></h1>
 
-    <js-block source="import formatDate from 'linna/util/formatDate'" />
+    <js-block source="import formatDate from 'linna-util/formatDate'" />
 
     <h3>Dependencies</h3>
 

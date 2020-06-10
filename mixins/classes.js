@@ -1,6 +1,6 @@
 import { kebabCase } from 'lodash'
 
-import composeClassnames from '../util/composeClassnames'
+import composeClassnames from 'linna-util//composeClassnames'
 
 export default {
 

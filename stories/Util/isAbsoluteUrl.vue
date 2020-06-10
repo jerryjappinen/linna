@@ -1,5 +1,5 @@
 <script>
-import isAbsoluteUrl from '../../util/isAbsoluteUrl'
+import isAbsoluteUrl from 'linna-util/isAbsoluteUrl'
 
 export default {
 
@@ -32,7 +32,7 @@ export default {
 
     <h1><code>isAbsoluteUrl(urlString)</code></h1>
 
-    <js-block source="import isAbsoluteUrl from 'linna/util/isAbsoluteUrl'" />
+    <js-block source="import isAbsoluteUrl from 'linna-util/isAbsoluteUrl'" />
 
     <table>
       <tbody>

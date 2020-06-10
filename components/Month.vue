@@ -1,8 +1,8 @@
 <script>
 import { isDate } from 'date-fns'
 
-import formatMonth from '../util/formatMonth'
-import formatMachineReadableDate from '../util/formatMachineReadableDate'
+import formatMonth from 'linna-util//formatMonth'
+import formatMachineReadableDate from 'linna-util//formatMachineReadableDate'
 
 export default {
   name: 'Date',

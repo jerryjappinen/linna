@@ -1,5 +1,5 @@
 <script>
-import getNameFromEmail from '../../util/getNameFromEmail'
+import getNameFromEmail from 'linna-util/getNameFromEmail'
 
 export default {
 

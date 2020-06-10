@@ -3,7 +3,7 @@ import Dump from '../../components/Dump'
 
 import classDirective from '../../directives/class'
 import classDirectivePrefix from '../../mixins/classDirectivePrefix'
-import { normalizeBindingValue } from '../../util/composeClassnamesDirective'
+import { normalizeBindingValue } from 'linna-util/composeClassnamesDirective'
 
 import codeSample from './code/class.txt'
 

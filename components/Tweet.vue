@@ -6,6 +6,48 @@ export default {
     tweet: {
       type: Object,
       required: true
+    },
+
+    userName: {
+      type: String,
+      required: true
+    },
+
+    tweetId: {
+      type: String,
+      required: true
+    },
+
+    // Optional
+
+    userDisplayName: {
+      type: String,
+      default: null
+    },
+
+    userProfileImageUrl: {
+      type: String,
+      default: null
+    },
+
+    tweetLanguage: {
+      type: String,
+      default: null
+    },
+
+    tweetTextDirection: {
+      type: String,
+      default: null
+    },
+
+    tweetBody: {
+      type: String,
+      default: null
+    },
+
+    tweetTimestamp: {
+      type: String,
+      default: null
     }
   }
 
@@ -22,27 +64,33 @@ export default {
       <div class="c-tweet-placeholder-content">
 
         <div class="c-tweet-link">
-          <a :href="'https://twitter.com/' + tweet.user.screen_name">
-            See {{ tweet.user.screen_name }}'s other Tweets
+          <a :href="'https://twitter.com/' + userName">
+            See {{ userName }}'s other Tweets
           </a>
         </div>
 
         <a
-          :href="'https://twitter.com/' + tweet.user.screen_name"
+          :href="'https://twitter.com/' + userName"
           class="c-tweet-user"
         >
 
           <img
-            :src="tweet.user.profile_image_url_https"
+            v-if="userProfileImageUrl"
+            :src="userProfileImageUrl"
             class="c-tweet-user-image"
           >
 
+          <div
+            v-else
+            class="c-tweet-user-image-placeholder"
+          />
+
           <div>
             <div>
-              <strong>{{ tweet.user.name }}</strong>
+              <strong>{{ userDisplayName || userName }}</strong>
             </div>
             <div class="c-tweet-info">
-              @{{ tweet.user.screen_name }}
+              @{{ userName }}
             </div>
           </div>
 
@@ -50,15 +98,15 @@ export default {
 
         <div class="c-tweet-content">
           <p
-            lang="en"
-            dir="ltr"
+            :lang="tweetLanguage || 'en'"
+            :dir="tweetTextDirection || 'ltr'"
           >
-            {{ tweet.text }}
+            {{ tweetBody || '' }}
           </p>
           <div class="c-tweet-info">
-            {{ tweet.user.name }} (@{{ tweet.user.screen_name }})
-            <a :href="'https://twitter.com/' + tweet.user.screen_name + '/status/' + tweet.id_str">
-              {{ tweet.created_at }}
+            {{ userDisplayName || userName }} (@{{ userName }})
+            <a :href="'https://twitter.com/' + userName + '/status/' + tweetId">
+              {{ tweetTimestamp || 'Go to tweet' }}
             </a>
           </div>
         </div>
@@ -66,7 +114,11 @@ export default {
       </div>
 
     </blockquote>
-    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8" />
+    <script
+      async
+      src="https://platform.twitter.com/widgets.js"
+      charset="utf-8"
+    />
   </div>
 </template>
 
@@ -124,7 +176,8 @@ export default {
   @include flex;
 }
 
-.c-tweet-user-image {
+.c-tweet-user-image,
+.c-tweet-user-image-placeholder {
   @include flex-fixed;
   width: 36px;
   height: 36px;

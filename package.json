@@ -17,7 +17,6 @@
     "services",
     "social",
     "styles",
-    "util",
     "vendor"
   ],
   "scripts": {
@@ -29,7 +28,7 @@
     "minor": "npm version minor -m \"New minor version\" && npm publish",
     "major": "npm version major -m \"New major version\" && npm publish",
     "lint": "npm run lint:js",
-    "lint:js": "eslint --ext .js components config directives log mixins services social spec util vendor",
+    "lint:js": "eslint --ext .js components config directives log mixins services social spec vendor",
     "lint:js:fix": "npm run lint:js -- --fix",
     "test": "npm run test:silent",
     "test:default": "jest --config jest.config.js",

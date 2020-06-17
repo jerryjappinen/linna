@@ -117,8 +117,7 @@ export default {
 <style lang="scss">
 
 .c-tweet {
-  @include keep-center;
-  width: 520px;
+  width: 550px;
   max-width: 100%;
 
   .twitter-tweet {
@@ -132,7 +131,7 @@ export default {
 .c-tweet-placeholder {
   @include border-box;
   max-width: 100%;
-  width: 500px;
+  width: 530px;
   min-width: 220px;
   margin-left: auto;
   margin-right: auto;

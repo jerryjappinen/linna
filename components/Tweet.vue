@@ -3,10 +3,6 @@ export default {
   name: 'Tweet',
 
   props: {
-    tweet: {
-      type: Object,
-      required: true
-    },
 
     userName: {
       type: String,

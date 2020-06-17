@@ -60,9 +60,7 @@ export default {
       class="c-tweet-placeholder twitter-tweet no-rhythm"
       data-dnt="true"
     >
-
       <div class="c-tweet-placeholder-content">
-
         <div class="c-tweet-link">
           <a :href="'https://twitter.com/' + userName">
             See {{ userName }}'s other Tweets
@@ -85,7 +83,7 @@ export default {
             class="c-tweet-user-image-placeholder"
           />
 
-          <div>
+          <div class="c-tweet-placeholder-user-details">
             <div>
               <strong>{{ userDisplayName || userName }}</strong>
             </div>
@@ -110,9 +108,7 @@ export default {
             </a>
           </div>
         </div>
-
       </div>
-
     </blockquote>
     <script
       async
@@ -174,6 +170,10 @@ export default {
 
 .c-tweet-user {
   @include flex;
+}
+
+.c-tweet-placeholder-user-details {
+  line-height: 1.2;
 }
 
 .c-tweet-user-image,

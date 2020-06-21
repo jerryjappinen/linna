@@ -10,7 +10,7 @@ export default {
     },
 
     tweetId: {
-      type: String,
+      type: [Number, String],
       required: true
     },
 
@@ -44,6 +44,10 @@ export default {
     tweetTimestamp: {
       type: String,
       default: null
+    },
+
+    darkTheme: {
+      default: false
     }
   }
 
@@ -53,8 +57,9 @@ export default {
 <template>
   <div class="c-tweet">
     <blockquote
-      class="c-tweet-placeholder twitter-tweet no-rhythm"
+      :data-theme="darkTheme ? 'dark' : undefined"
       data-dnt="true"
+      class="c-tweet-placeholder twitter-tweet no-rhythm"
     >
       <div class="c-tweet-placeholder-content">
         <div class="c-tweet-link">

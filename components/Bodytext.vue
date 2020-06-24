@@ -1,6 +1,6 @@
 <script>
-import eventHasMetaKey from 'linna-util//eventHasMetaKey'
-import linkIsInternal from 'linna-util//linkIsInternal'
+import eventHasMetaKey from 'linna-util/eventHasMetaKey'
+import linkIsInternal from 'linna-util/linkIsInternal'
 
 export default {
   name: 'Bodytext',

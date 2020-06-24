@@ -1,7 +1,7 @@
 <script>
 import Bitmap from './Bitmap'
 
-import isClient from 'linna-util//isClient'
+import isClient from 'linna-util/isClient'
 
 let ImageComponent = Bitmap
 if (isClient()) {

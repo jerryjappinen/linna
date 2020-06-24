@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { filter } from 'lodash'
+import filter from 'lodash/filter'
 
 const getBaseUrl = (apiVersion) => {
   return 'https://calendly.com/api/v' + (apiVersion || 1) + '/'

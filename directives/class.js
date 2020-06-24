@@ -1,4 +1,4 @@
-import { uniq } from 'lodash'
+import uniq from 'lodash/uniq'
 
 import {
   composeClassnames,
@@ -7,7 +7,7 @@ import {
   isRoot,
   joinPrefixes,
   normalizeBindingValue
-} from 'linna-util//composeClassnamesDirective'
+} from 'linna-util/composeClassnamesDirective'
 
 
 

@@ -1,5 +1,6 @@
 <script>
-import { isArray, isPlainObject } from 'lodash'
+import isArray from 'lodash/isArray'
+import isPlainObject from 'lodash/isPlainObject'
 
 import ownValue from '../mixins/ownValue'
 

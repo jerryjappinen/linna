@@ -1,4 +1,4 @@
-import windowExists from 'linna-util//windowExists'
+import windowExists from 'linna-util/windowExists'
 
 // See reference: https://developers.freshchat.com/
 const widgetConfig = {

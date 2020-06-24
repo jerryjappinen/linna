@@ -1,7 +1,7 @@
-import { debounce } from 'lodash'
+import debounce from 'lodash/debounce'
 import Vue from 'vue'
 
-import windowExists from 'linna-util//windowExists'
+import windowExists from 'linna-util/windowExists'
 
 const debounceDelay = 10
 

@@ -1,5 +1,5 @@
-import getUserAgentStringValue from 'linna-util//getUserAgentStringValue'
-import parseVersionNumber from 'linna-util//parseVersionNumber'
+import getUserAgentStringValue from 'linna-util/getUserAgentStringValue'
+import parseVersionNumber from 'linna-util/parseVersionNumber'
 
 let nativeDesktopPlatform = null
 let nativeDesktopVersion = null

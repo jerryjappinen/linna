@@ -1,9 +1,9 @@
 <script>
-import { isDate } from 'date-fns'
+import isDate from 'date-fns/isDate'
 
-import formatDate from 'linna-util//formatDate'
-import formatDateInterval from 'linna-util//formatDateInterval'
-import formatMachineReadableDate from 'linna-util//formatMachineReadableDate'
+import formatDate from 'linna-util/formatDate'
+import formatDateInterval from 'linna-util/formatDateInterval'
+import formatMachineReadableDate from 'linna-util/formatMachineReadableDate'
 
 export default {
   name: 'DateInterval',

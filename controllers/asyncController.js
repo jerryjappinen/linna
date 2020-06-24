@@ -1,4 +1,4 @@
-import { fill } from 'lodash'
+import fill from 'lodash/fill'
 import Vue from 'vue'
 
 // import tryPromises from './tryPromises'

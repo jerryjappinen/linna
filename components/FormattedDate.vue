@@ -1,8 +1,10 @@
 <script>
-import { differenceInDays, formatRelative, isDate } from 'date-fns'
+import differenceInDays from 'date-fns/differenceInDays'
+import formatRelative from 'date-fns/formatRelative'
+import isDate from 'date-fns/isDate'
 
-import formatDate from 'linna-util//formatDate'
-import formatMachineReadableDate from 'linna-util//formatMachineReadableDate'
+import formatDate from 'linna-util/formatDate'
+import formatMachineReadableDate from 'linna-util/formatMachineReadableDate'
 
 export default {
   name: 'FormattedDate',

@@ -1,7 +1,8 @@
-import { differenceInCalendarDays } from 'date-fns'
-import { debounce, isDate } from 'lodash'
+import differenceInCalendarDays from 'date-fns/differenceInCalendarDays'
+import debounce from 'lodash/debounce'
+import isDate from 'lodash/isDate'
 
-import windowExists from 'linna-util//windowExists'
+import windowExists from 'linna-util/windowExists'
 
 const prefix = 'vue-persist-'
 const expirationCutoff = 14 // days

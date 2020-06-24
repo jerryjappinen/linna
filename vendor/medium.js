@@ -1,4 +1,4 @@
-import { filter } from 'lodash'
+import filter from 'lodash/filter'
 import RssParser from 'rss-parser'
 
 const parser = new RssParser()

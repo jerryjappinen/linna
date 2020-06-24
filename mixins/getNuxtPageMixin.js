@@ -1,5 +1,7 @@
 // NOTE: this module returns a generator function. Use this to generate the complete page mixin in your Nuxt project.
-import { kebabCase, includes, map } from 'lodash'
+import kebabCase from 'lodash/kebabCase'
+import includes from 'lodash/includes'
+import map from 'lodash/map'
 
 // Page mixins, should be used in each page-level component
 // FIXME: should also support passing a page object as `page`, not having to pass individual fields each time

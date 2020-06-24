@@ -1,7 +1,7 @@
 <script>
 import DelayedBitmap from './DelayedBitmap'
 
-import isClient from 'linna-util//isClient'
+import isClient from 'linna-util/isClient'
 
 // NOTE: only works client-side
 let lozad = null

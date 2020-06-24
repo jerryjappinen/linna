@@ -1,5 +1,6 @@
 <script>
-import { isNumber, isString } from 'lodash'
+import isNumber from 'lodash/isNumber'
+import isString from 'lodash/isString'
 
 export default {
   name: 'Dump',

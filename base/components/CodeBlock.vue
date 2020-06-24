@@ -1,6 +1,8 @@
 <script>
 import safeStringify from 'fast-safe-stringify'
-import { isArray, isNumber, isString } from 'lodash'
+import isArray from 'lodash/isArray'
+import isNumber from 'lodash/isNumber'
+import isString from 'lodash/isString'
 import 'highlight.js/styles/github-gist.css'
 
 import hljs from 'highlight.js'

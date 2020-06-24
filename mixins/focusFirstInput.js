@@ -1,4 +1,4 @@
-import focusFirstInput from 'linna-util//focusFirstInput'
+import focusFirstInput from 'linna-util/focusFirstInput'
 
 export default {
 

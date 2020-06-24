@@ -1,5 +1,5 @@
 <script>
-import replaceAll from 'linna-util//replaceAll'
+import replaceAll from 'linna-util/replaceAll'
 
 export default {
   name: 'EmailLink',

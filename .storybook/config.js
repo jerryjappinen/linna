@@ -1,5 +1,5 @@
 import { addParameters, configure } from '@storybook/vue'
-import { kebabCase } from 'lodash'
+import kebabCase from 'lodash/kebabCase'
 import Vue from 'vue'
 
 import '../base/styles/global.scss'

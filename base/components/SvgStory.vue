@@ -1,5 +1,6 @@
 <script>
-import { kebabCase, keys } from 'lodash'
+import kebabCase from 'lodash/kebabCase'
+import keys from 'lodash/keys'
 
 export default {
 

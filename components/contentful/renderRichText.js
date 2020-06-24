@@ -1,4 +1,6 @@
-import { isArray, kebabCase, map } from 'lodash'
+import isArray from 'lodash/isArray'
+import kebabCase from 'lodash/kebabCase'
+import map from 'lodash/map'
 
 import {
   getHtmlNodeType,

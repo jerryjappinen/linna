@@ -1,10 +1,10 @@
-import { debounce } from 'lodash'
+import debounce from 'lodash/debounce'
 import Vue from 'vue'
 
 import styles from '../config/styles'
 
-import detectObtrusiveScrollbars from 'linna-util//detectObtrusiveScrollbars'
-import windowExists from 'linna-util//windowExists'
+import detectObtrusiveScrollbars from 'linna-util/detectObtrusiveScrollbars'
+import windowExists from 'linna-util/windowExists'
 
 // Scroll position or dimensions are updated at most once per this amount of ms
 const debounceDelay = 10
@@ -17,7 +17,9 @@ export default new Vue({
       width: 0,
       height: 0,
       scrollX: 0,
-      scrollY: 0
+      scrollY: 0,
+      breakpointPhone: styles.breakpointPhone,
+      breakpointTablet: styles.breakpointTablet
     }
   },
 
@@ -52,19 +54,19 @@ export default new Vue({
     // Matches moabit/mixins/screen/devices.scss
 
     isPhone () {
-      return this.width <= styles.breakpointPhone
+      return this.width <= this.breakpointPhone
     },
 
     isTablet () {
-      return this.width > styles.breakpointPhone
+      return this.width > this.breakpointPhone
     },
 
     isUnderDesktop () {
-      return this.width < styles.breakpointTablet
+      return this.width < this.breakpointTablet
     },
 
     isDesktop () {
-      return this.width >= styles.breakpointTablet
+      return this.width >= this.breakpointTablet
     }
 
   },

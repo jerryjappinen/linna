@@ -76,7 +76,7 @@ export default {
       default: null
     },
 
-    darkTheme: {
+    dark: {
       default: false
     }
   },
@@ -88,7 +88,7 @@ export default {
         'data-dnt': true
       }
 
-      if (this.darkTheme) {
+      if (this.dark) {
         bindings['dark-theme'] = true
       }
 
@@ -146,7 +146,7 @@ export default {
 <template>
   <div
     :class="{
-      'c-tweet-dark': darkTheme
+      'c-tweet-dark': dark
     }"
     class="c-tweet"
   >
@@ -230,9 +230,9 @@ export default {
   margin-right: auto;
   border-width: 1px;
   border-radius: 5px;
-  border-color: #e1e8ed;
   color: #1c2022;
   background-color: #fff;
+  border-color: #e1e8ed;
   font-size: 16px;
   line-height: 1.4;
   font-family: Helvetica, Roboto, "Segoe UI", Calibri, sans-serif;
@@ -244,6 +244,11 @@ export default {
   .c-tweet-placeholder {
     color: #fff;
     background-color: #1c2022;
+  }
+
+  .c-tweet-placeholder,
+  .c-tweet-content {
+    border-color: #253341;
   }
 
 }

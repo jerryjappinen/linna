@@ -30,5 +30,13 @@ export default {
       />
     </div>
 
+    <div>
+      <tweet
+        :user-name="twitterUserName"
+        :tweet-id="tweetId"
+        :dark="true"
+      />
+    </div>
+
   </div>
 </template>

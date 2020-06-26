@@ -1,4 +1,34 @@
 <script>
+import windowExists from 'linna-util/windowExists'
+
+// // https://developer.twitter.com/en/docs/twitter-for-websites/javascript-api/guides/scripting-loading-and-initialization
+// const initTwitterLibrary = () => {
+//   if (windowExists()) {
+
+//     window.twttr = (function (d, s, id) {
+//       const fjs = d.getElementsByTagName(s)[0]
+//       const t = window.twttr || {}
+
+//       if (d.getElementById(id)) return t
+
+//       const js = d.createElement(s)
+//       js.id = id
+//       js.src = 'https://platform.twitter.com/widgets.js'
+//       fjs.parentNode.insertBefore(js, fjs)
+
+//       t._e = []
+//       t.ready = function (f) {
+//         t._e.push(f)
+//       }
+
+//       return t
+//     }(window.document, 'script', 'twitter-wjs'))
+
+//   }
+
+//   return null
+// }
+
 export default {
   name: 'Tweet',
 
@@ -49,16 +79,79 @@ export default {
     darkTheme: {
       default: false
     }
+  },
+
+  computed: {
+
+    bindings () {
+      const bindings = {
+        'data-dnt': true
+      }
+
+      if (this.darkTheme) {
+        bindings['dark-theme'] = true
+      }
+
+      return bindings
+    }
+
+  },
+
+  mounted () {
+    this.loadScript()
+    // initTwitterLibrary()
+    // this.loadTwitterComponent()
+  },
+
+  methods: {
+
+    // loadTwitterComponent () {
+    //   if (windowExists() && window.twttr) {
+    //     // eslint-disable-next-line no-console
+    //     console.log(window.twttr)
+    //     if (window.twttr.widgets) {
+    //       window.twttr.widgets.load(this.$el)
+    //     } else {
+    //       window.twttr.ready((twittr) => {
+    //         twittr.widgets.load(this.$el)
+    //       })
+    //     }
+    //   }
+    // }
+
+    loadScript () {
+      if (windowExists()) {
+
+        // Create a script element
+        const script = window.document.createElement('script')
+
+        // Set attributes
+        script.setAttribute('type', 'text/javascript')
+        script.setAttribute('language', 'javascript')
+        script.setAttribute('charset', 'utf-8')
+        script.setAttribute('src', 'https://platform.twitter.com/widgets.js')
+        script.defer = true
+
+        // Append script
+        this.$el.appendChild(script)
+
+      }
+    }
+
   }
 
 }
 </script>
 
 <template>
-  <div class="c-tweet">
+  <div
+    :class="{
+      'c-tweet-dark': darkTheme
+    }"
+    class="c-tweet"
+  >
     <blockquote
-      :data-theme="darkTheme ? 'dark' : undefined"
-      data-dnt="true"
+      v-bind="bindings"
       class="c-tweet-placeholder twitter-tweet no-rhythm"
     >
       <div class="c-tweet-placeholder-content">
@@ -103,19 +196,14 @@ export default {
             {{ tweetBody || '' }}
           </p>
           <div class="c-tweet-info">
-            {{ userDisplayName || userName }} (@{{ userName }})
-            <a :href="'https://twitter.com/' + userName + '/status/' + tweetId">
+            &mdash; {{ userDisplayName || userName }} (@{{ userName }})
+            <a :href="'https://twitter.com/' + userName + '/status/' + tweetId + '?ref_src=twsrc%5Etfw'">
               {{ tweetTimestamp || 'Go to tweet' }}
             </a>
           </div>
         </div>
       </div>
     </blockquote>
-    <script
-      async
-      src="https://platform.twitter.com/widgets.js"
-      charset="utf-8"
-    />
   </div>
 </template>
 
@@ -149,6 +237,15 @@ export default {
   line-height: 1.4;
   font-family: Helvetica, Roboto, "Segoe UI", Calibri, sans-serif;
   font-style: normal;
+}
+
+.c-tweet-dark {
+
+  .c-tweet-placeholder {
+    color: #fff;
+    background-color: #1c2022;
+  }
+
 }
 
 .c-tweet-placeholder-content {

@@ -19,6 +19,7 @@ export default {
     },
 
     inline: {
+      type: Boolean,
       default: false
     }
 
@@ -32,6 +33,10 @@ export default {
           ? markdownParser.renderInline(this.body)
           : markdownParser.render(this.body)
         : null
+    },
+
+    component () {
+      return this.inline ? 'span' : 'div'
     }
 
   }
@@ -41,20 +46,25 @@ export default {
 
 <template>
   <!-- eslint-disable vue/no-v-html -->
-  <div class="c-markdown">
+  <component
+    :is="component"
+    class="c-markdown"
+  >
 
-    <div
+    <component
+      :is="component"
       v-if="bodyHtml"
       class="c-markdown-content c-markdown-body"
       v-html="bodyHtml"
     />
 
-    <div
+    <component
+      :is="component"
       v-else
       class="c-markdown-content c-markdown-placeholder"
     >
       <slot />
-    </div>
+    </component>
 
-  </div>
+  </component>
 </template>

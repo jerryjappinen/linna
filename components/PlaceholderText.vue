@@ -32,7 +32,7 @@ export default {
 
 <template>
   <component
-    :is="inline ? 'span' : 'block'"
+    :is="inline ? 'span' : 'div'"
     class="c-placeholder-text"
   >
     {{ text }}

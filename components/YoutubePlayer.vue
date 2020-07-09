@@ -114,7 +114,7 @@ export default {
     class="c-youtube-player"
     width="1280"
     height="720"
-    allow="autoplay; encrypted-media"
+    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
     frameborder="0"
   />
 </template>

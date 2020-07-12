@@ -161,11 +161,11 @@ export default {
       this.$emit('change', newIndex)
 
       if (!newIndex) {
-        this.$emit('change:first', newIndex)
+        this.$emit('change-first', newIndex)
       }
 
       if (newIndex === this.getMaxIndex()) {
-        this.$emit('change:last', newIndex)
+        this.$emit('change-last', newIndex)
       }
 
     },
@@ -174,11 +174,11 @@ export default {
       this.$emit('settle', newIndex)
 
       if (!newIndex) {
-        this.$emit('settle:first', newIndex)
+        this.$emit('settle-first', newIndex)
       }
 
       if (newIndex === this.getMaxIndex()) {
-        this.$emit('settle:last', newIndex)
+        this.$emit('settle-last', newIndex)
       }
 
     },
@@ -194,14 +194,14 @@ export default {
           this.$emit('click', event, clickedIndex)
 
           if (!clickedIndex) {
-            this.$emit('click:first', event)
+            this.$emit('click-first', event)
           }
 
           if (clickedIndex === maxIndex) {
-            this.$emit('click:last', event)
+            this.$emit('click-last', event)
 
             if (currentIndex === maxIndex) {
-              this.$emit('click:last-double', event)
+              this.$emit('click-last-double', event)
             }
 
           }

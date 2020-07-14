@@ -104,7 +104,7 @@ export default {
       if (this.mailto) {
         bindings.href = 'mailto:' + this.mailto
 
-      // Button
+      // Phone link
       } else if (this.tel) {
         bindings.href = 'tel:' + this.tel
 
@@ -123,14 +123,14 @@ export default {
           bindings.href = this.href
         }
 
-        if (this.external || this.noIndex) {
-          bindings.rel = 'nofollow'
-        }
+      }
 
-        if (this.external) {
-          bindings.target = '_blank'
-        }
+      if (this.external || this.noIndex) {
+        bindings.rel = 'nofollow noopener'
+      }
 
+      if (this.external) {
+        bindings.target = '_blank'
       }
 
       return bindings

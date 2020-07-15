@@ -8,6 +8,9 @@ import windowExists from 'linna-util/windowExists'
 
 // Scroll position or dimensions are updated at most once per this amount of ms
 const debounceDelay = 10
+const debounceOptions = {
+  leading: true
+}
 
 export default new Vue({
 
@@ -18,8 +21,14 @@ export default new Vue({
       height: 0,
       scrollX: 0,
       scrollY: 0,
+      isScrollingDown: false,
+      isScrollingUp: false,
       breakpointPhone: styles.breakpointPhone,
-      breakpointTablet: styles.breakpointTablet
+      breakpointTablet: styles.breakpointTablet,
+
+      // Debounced callbacks
+      $_debouncedOnResize: null,
+      $_debouncedOnScroll: null
     }
   },
 
@@ -71,6 +80,20 @@ export default new Vue({
 
   },
 
+  watch: {
+
+    scrollY (newValue, oldValue) {
+      if (!this.isScrollingDown && newValue > oldValue) {
+        this.isScrollingDown = true
+        this.isScrollingUp = false
+      } else if (!this.isScrollingUp && newValue < oldValue) {
+        this.isScrollingDown = false
+        this.isScrollingUp = true
+      }
+    }
+
+  },
+
   created () {
     if (windowExists()) {
       this.onCreated()
@@ -94,14 +117,21 @@ export default new Vue({
         this.hasObtrusiveScrollbars = true
       }
 
-      window.addEventListener('resize', this.onResize)
-      window.addEventListener('scroll', this.onScroll)
+      this.$_debouncedOnResize = debounce(this.$_updateDimensions, debounceDelay, debounceOptions)
+      this.$_debouncedOnScroll = debounce(this.$_updateScrollValues, debounceDelay, debounceOptions)
+
+      window.addEventListener('resize', this.$_debouncedOnResize)
+      window.addEventListener('scroll', this.$_debouncedOnScroll)
     },
 
     // Remove listeners
     onDestroy () {
-      window.removeEventListener('resize', this.onResize)
-      window.removeEventListener('scroll', this.onScroll)
+      if (this.$_debouncedOnResize) {
+        window.removeEventListener('resize', this.$_debouncedOnResize)
+      }
+      if (this.$_debouncedOnScroll) {
+        window.removeEventListener('scroll', this.$_debouncedOnScroll)
+      }
     },
 
 
@@ -136,20 +166,7 @@ export default new Vue({
     $_updateScrollValues () {
       this.scrollX = this.$_getScrollX()
       this.scrollY = this.$_getScrollY()
-    },
-
-    // NOTE: won't work with arrow function since `this` scope will be different
-    onResize: debounce(function () {
-      this.$_updateDimensions()
-    }, debounceDelay, {
-      leading: true
-    }),
-
-    onScroll: debounce(function () {
-      this.$_updateScrollValues()
-    }, debounceDelay, {
-      leading: true
-    })
+    }
 
   }
 

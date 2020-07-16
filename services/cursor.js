@@ -3,7 +3,7 @@ import Vue from 'vue'
 
 import windowExists from 'linna-util/windowExists'
 
-const debounceDelay = 10
+const debounceDelay = 1
 
 export default new Vue({
 
@@ -11,26 +11,25 @@ export default new Vue({
     return {
       x: 0,
       y: 0,
-      listener: null
+      callback: null
     }
   },
 
   created () {
     if (windowExists()) {
 
-      this.listener = debounce((event) => {
+      this.callback = debounce((event) => {
         this.x = event.clientX
         this.y = event.clientY
       }, debounceDelay)
 
-      window.addEventListener('mousemove', this.listener)
-
+      window.addEventListener('mousemove', this.callback)
     }
   },
 
   beforeDestroy () {
-    if (windowExists() && this.listener) {
-      window.removeEventListener('moudemove', this.listener)
+    if (windowExists() && this.callback) {
+      window.removeEventListener('moudemove', this.callback)
     }
   }
 

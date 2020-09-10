@@ -229,7 +229,7 @@ export default {
   margin-left: auto;
   margin-right: auto;
   border-width: 1px;
-  border-radius: 5px;
+  border-radius: 15px;
   color: #1c2022;
   background-color: #fff;
   border-color: #e1e8ed;

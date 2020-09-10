@@ -129,37 +129,37 @@ export default {
 .c-youtube-player-dimensions {
   @include dimensions-landscape(280px);
 
-@include screen-over(375px) {
-  @include dimensions-landscape(320px);
-}
+  @include screen-over(375px) {
+    @include dimensions-landscape(320px);
+  }
 
-@include screen-over(540px) {
-  @include dimensions-landscape(480px);
-}
+  @include screen-over(540px) {
+    @include dimensions-landscape(480px);
+  }
 
-@include screen-over(640px) {
-  @include dimensions-landscape(500px);
-}
+  @include screen-over(640px) {
+    @include dimensions-landscape(500px);
+  }
 
-// @include screen-over(768px) {
-//   @include dimensions-landscape(640px);
-// }
+  // @include screen-over(768px) {
+  //   @include dimensions-landscape(640px);
+  // }
 
-// @include screen-over(960px) {
-//   @include dimensions-landscape(768px);
-// }
+  // @include screen-over(960px) {
+  //   @include dimensions-landscape(768px);
+  // }
 
-// @include screen-over(1024px) {
-//   @include dimensions-landscape(880px);
-// }
+  // @include screen-over(1024px) {
+  //   @include dimensions-landscape(880px);
+  // }
 
-// @include screen-over(1280px) {
-//   @include dimensions-landscape(960px);
-// }
+  // @include screen-over(1280px) {
+  //   @include dimensions-landscape(960px);
+  // }
 
-@include full {
-  @include dimensions-landscape(464px);
-}
+  @include full {
+    @include dimensions-landscape(464px);
+  }
 
 }
 

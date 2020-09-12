@@ -64,6 +64,14 @@ export default {
 
     // State params
 
+    block: {
+      default: null
+    },
+
+    center: {
+      default: null
+    },
+
     loading: {
       default: null
     },
@@ -164,14 +172,16 @@ export default {
   <component
     :is="component"
     v-bind="bindings"
-    class="c-click-button"
-    :class="{
-      'c-click-button-loading': !!loading,
-      'c-click-button-not-loading': !loading,
-      'c-click-button-disabled': !!disabled,
-      'c-click-button-enabled': !disabled
-    }"
     :disabled="disabled"
+    :class="{
+      'c-click-button-loading': loading,
+      'c-click-button-not-loading': !loading,
+      'c-click-button-disabled': disabled,
+      'c-click-button-enabled': !disabled,
+      'c-click-button-block': block,
+      'c-click-button-center': center
+    }"
+    class="c-click-button"
     v-on="inputListeners"
   >
 
@@ -198,7 +208,13 @@ export default {
       />
     </fade>
 
-    <span class="c-click-button-content">
+    <span
+      :class="{
+        'c-click-button-content-block': block,
+        'c-click-button-content-center': center
+      }"
+      class="c-click-button-content"
+    >
       <slot />
     </span>
 
@@ -217,6 +233,23 @@ export default {
   text-align: inherit;
   white-space: nowrap;
 }
+
+.c-click-button-block {
+  @include flex;
+  width: 100%;
+}
+
+.c-click-button-center {
+  justify-content: center;
+}
+
+// .c-click-button-block-content {
+//   align-items: center;
+// }
+
+// .c-click-button-content-center {
+//   align-items: center;
+// }
 
 .c-click-button-content {
   @include border-box;

@@ -38,6 +38,58 @@ export default {
 
       <div>
         <click-button
+          :block="true"
+          @click="onClick"
+        >
+          Block
+        </click-button>
+      </div>
+
+      <div>
+        <click-button
+          :block="true"
+          :center="true"
+          @click="onClick"
+        >
+          Block center
+        </click-button>
+      </div>
+
+      <div>
+        <click-button
+          :block="true"
+          icon-left="cross"
+          icon-right="cross"
+          @click="onClick"
+        >
+          Block with icon
+        </click-button>
+      </div>
+
+      <div>
+        <click-button
+          :block="true"
+          :center="true"
+          icon-left="cross"
+          icon-right="cross"
+          @click="onClick"
+        >
+          Block center with icon
+        </click-button>
+      </div>
+
+      <div>
+        <click-button
+          :block="true"
+          loading="true"
+          @click="onClick"
+        >
+          Block loading
+        </click-button>
+      </div>
+
+      <div>
+        <click-button
           href="/"
           @click.prevent="onClick"
         >
@@ -119,14 +171,10 @@ export default {
 
 .grid {
   @include grid;
-  @include grid-columns(9);
   @include grid-gap(1em, 1em);
-  align-items: center;
-  text-align: center;
 
-  .c-click-button {
-    // @include flex;
-    width: 100%;
+  > div {
+    border-width: 1px;
   }
 
 }

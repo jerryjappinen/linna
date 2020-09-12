@@ -17,6 +17,7 @@ const defaultFlickityOptions = {
   freeScroll: true,
   freeScrollFriction: 0.05,
   contain: true,
+  wrapAround: false,
   prevNextButtons: false,
   pageDots: false,
   selectedAttraction: 0.05,
@@ -42,6 +43,10 @@ export default {
     },
 
     buttons: {
+      default: false
+    },
+
+    loop: {
       default: false
     },
 
@@ -89,6 +94,10 @@ export default {
 
       if (this.center || this.paginate) {
         options.freeScroll = false
+      }
+
+      if (this.loop) {
+        options.wrapAround = true
       }
 
       options.friction = 0.5

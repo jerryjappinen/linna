@@ -39,10 +39,6 @@ export default {
     onLoaded (event) {
       this.isHidden = false
       this.$emit('loaded', event)
-    },
-
-    onClick (event) {
-      this.$emit('click', event)
     }
 
   }
@@ -62,7 +58,7 @@ export default {
     :natural-height="naturalHeight"
     :src="src"
     :title="title"
-    @click="onClick"
+    v-on="$listeners"
   />
 </template>
 

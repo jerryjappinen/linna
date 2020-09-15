@@ -7,14 +7,7 @@ export default {
       type: String,
       default: null
     }
-  },
-
-  methods: {
-    onClick (event) {
-      this.$emit('click', event)
-    }
   }
-
 }
 </script>
 
@@ -24,6 +17,6 @@ export default {
     :href="href"
     rel="nofollow noopener"
     target="_blank"
-    @click="onClick"
+    v-on="$listeners"
   ><slot /></a>
 </template>

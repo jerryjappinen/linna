@@ -55,12 +55,6 @@ export default {
       return null
     }
 
-  },
-
-  methods: {
-    onClick () {
-      this.$emit('click')
-    }
   }
 
 }
@@ -71,6 +65,6 @@ export default {
     class="c-email-link"
     v-bind="bindings"
     :href="href"
-    @click="onClick"
+    v-on="$listeners"
   ><slot /></a>
 </template>

@@ -32,12 +32,6 @@ export default {
           : '')
     }
 
-  },
-
-  methods: {
-    onClick () {
-      this.$emit('click')
-    }
   }
 
 }
@@ -47,6 +41,6 @@ export default {
   <a
     class="c-phone-number"
     :href="href"
-    @click="onClick"
+    v-on="$listeners"
   ><slot /></a>
 </template>

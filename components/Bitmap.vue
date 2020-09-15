@@ -34,16 +34,7 @@ export default {
       return this.title ? ('' + this.title).trim() : this.title
     }
 
-  },
-
-  methods: {
-
-    onClick (event) {
-      this.$emit('click', event)
-    }
-
   }
-
 }
 </script>
 
@@ -55,6 +46,6 @@ export default {
     :height="naturalHeight"
     :src="src"
     :title="normalizedTitle"
-    @click="onClick"
+    v-on="$listeners"
   >
 </template>

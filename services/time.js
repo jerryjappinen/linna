@@ -3,13 +3,35 @@ import requestAnimationFrame from 'raf'
 
 const intervalDuration = 1000
 
+const getDateOnlyDate = (dateAndTime) => {
+  return new Date(dateAndTime.toDateString())
+}
+
 export default new Vue({
 
   data () {
+    const currentDate = new Date()
+
     return {
       $_timer: null,
-      current: new Date()
+      current: currentDate,
+
+      // This only changes when date changes
+      // You can listen to this without getting an update every second
+      currentDate: getDateOnlyDate(currentDate)
     }
+  },
+
+  watch: {
+
+    current (currentTime) {
+      const newDate = getDateOnlyDate(currentTime)
+
+      if (newDate.getTime() !== this.currentDate.getTime()) {
+        this.currentDate = newDate
+      }
+    }
+
   },
 
   created () {

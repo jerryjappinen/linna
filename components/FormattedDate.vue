@@ -12,7 +12,9 @@ export default {
   props: {
 
     date: {
-      type: [Number, String, Date],
+      // NOTE: removing type check due to an issue in Nuxt
+      // https://github.com/nuxt/nuxt.js/issues/5565
+      // type: [Number, String, Date],
       required: true
     },
 

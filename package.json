@@ -1,6 +1,6 @@
 {
   "name": "linna",
-  "version": "5.3.1",
+  "version": "5.3.2",
   "description": "Shared utility code and Vue component library.",
   "main": "index.js",
   "private": false,

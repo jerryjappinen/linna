@@ -58,11 +58,15 @@ export default {
   computed: {
 
     resolvedTitle () {
-      return this.title || this.image.fields.description || (
-        this.image && this.image.fields
-          ? this.image.fields.title
-          : null
-      )
+      if (this.title) {
+        return this.title
+      }
+
+      if (this.image && this.image.fields) {
+        return this.image.fields.description || this.image.fields.title || null
+      }
+
+      return null
     },
 
     resolvedWidth () {

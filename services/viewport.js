@@ -21,8 +21,11 @@ export default new Vue({
       height: 0,
       scrollX: 0,
       scrollY: 0,
+
+      isResizing: false,
       isScrollingDown: false,
       isScrollingUp: false,
+
       breakpointPhone: styles.breakpointPhone,
       breakpointTablet: styles.breakpointTablet,
 
@@ -138,6 +141,18 @@ export default new Vue({
 
     // Helpers
 
+    $_onResizeStart () {
+      if (!this.isResizing) {
+        this.isResizing = true
+      }
+    },
+
+    $_onResizeEnd () {
+      if (this.isResizing) {
+        this.isResizing = false
+      }
+    },
+
     $_getScrollX () {
       return (window.pageXOffset || window.document.scrollLeft || 0) - (window.document.clientLeft || 0)
     },
@@ -161,6 +176,8 @@ export default new Vue({
     $_updateDimensions () {
       this.width = this.$_getWidth()
       this.height = this.$_getHeight()
+
+      this.isResizing = false
     },
 
     $_updateScrollValues () {

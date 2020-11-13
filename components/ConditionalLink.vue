@@ -51,6 +51,10 @@ export default {
       return 'span'
     },
 
+    isClickable () {
+      return this.component !== 'span'
+    },
+
     bindings () {
       const bindings = {}
 
@@ -95,6 +99,10 @@ export default {
   <component
     :is="component"
     v-bind="bindings"
+    :class="{
+      'c-conditional-link-clickable': isClickable,
+      'c-conditional-link-not-clickable': !isClickable
+    }"
     class="c-conditional-link"
     v-on="$listeners"
   ><slot /></component>

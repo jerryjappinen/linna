@@ -20,6 +20,11 @@ export default {
       required: true
     },
 
+    relative: {
+      type: Boolean,
+      default: true
+    },
+
     absolutePrefix: {
       default: null
     }
@@ -41,7 +46,7 @@ export default {
     },
 
     isRelative () {
-      return Math.abs(this.diff) < 6
+      return this.relative && Math.abs(this.diff) < 6
     },
 
     machineReadableDateString () {

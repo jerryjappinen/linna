@@ -3,6 +3,8 @@ import differenceInDays from 'date-fns/differenceInDays'
 import formatRelative from 'date-fns/formatRelative'
 import isDate from 'date-fns/isDate'
 
+import isNumber from 'lodash/isNumber'
+
 import formatDate from 'linna-util/formatDate'
 import formatMachineReadableDate from 'linna-util/formatMachineReadableDate'
 
@@ -27,7 +29,11 @@ export default {
   computed: {
 
     normalizedDate () {
-      return isDate(this.date) ? this.date : new Date(this.date)
+      return isDate(this.date)
+        ? this.date
+        : isNumber(this.date)
+          ? new Date(this.date * 1000)
+          : new Date(this.date)
     },
 
     diff () {

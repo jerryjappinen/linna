@@ -83,7 +83,5 @@ export default {
   <time
     class="c-formatted-date"
     :datetime="machineReadableDateString"
-  >
-    {{ prefix ? prefix + ' ' : '' }}{{ dateString }}
-  </time>
+  >{{ prefix ? prefix + ' ' : '' }}{{ dateString }}</time>
 </template>

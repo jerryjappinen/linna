@@ -25,9 +25,10 @@ export default {
 </template>
 
 <style lang="scss">
-$c-flip-switch-track-height: 8px;
-$c-flip-switch-track-width: $c-flip-switch-track-height * 4;
-$c-flip-switch-knob-scale: 2.5;
+$c-flip-switch-track-height: 1.2em;
+$c-flip-switch-track-width: $c-flip-switch-track-height * 2;
+$c-flip-switch-knob-margin: 0.1em;
+$c-flip-switch-knob-width: $c-flip-switch-track-height - (2 * $c-flip-switch-knob-margin);
 
 .c-flip-switch,
 .c-flip-switch-knob {
@@ -40,6 +41,7 @@ $c-flip-switch-knob-scale: 2.5;
   display: inline-block;
   border-radius: 100px;
   vertical-align: middle;
+  border-width: 2px;
 
   width: $c-flip-switch-track-width;
   height: $c-flip-switch-track-height;
@@ -49,25 +51,25 @@ $c-flip-switch-knob-scale: 2.5;
   margin-right: $c-flip-switch-track-height / 2;
 
   // Default for enabled, off state
-  background-color: $light-grey;
+  border-color: $dark;
+  // background-color: $light-grey;
 }
 
 .c-flip-switch-knob {
   position: relative;
-  left: $c-flip-switch-track-width;
+  top: $c-flip-switch-knob-margin;
+  left: $c-flip-switch-knob-margin;
   box-sizing: border-box;
   display: block;
 
-  width: $c-flip-switch-track-height;
-  height: $c-flip-switch-track-height;
+  width: $c-flip-switch-knob-width;
+  height: $c-flip-switch-knob-width;
 
   // Default for off state
   @include round;
-  @include hover-shadow-rest($dark, (3px / $c-flip-switch-knob-scale));
+  @include hover-shadow-rest($dark, (3px));
   background-color: $dark;
-  transform:
-    scale($c-flip-switch-knob-scale)
-    translate3d((-$c-flip-switch-track-width) / $c-flip-switch-knob-scale, 0, 0);
+  transform: translate3d(0, 0, 0);
 
 }
 
@@ -79,8 +81,8 @@ $c-flip-switch-knob-scale: 2.5;
   background-color: $dark;
 
   .c-flip-switch-knob {
-    background-color: $dark;
-    transform: scale($c-flip-switch-knob-scale) translate3d(-($c-flip-switch-track-height / 2), 0, 0);
+    background-color: $white;
+    transform: translate3d(#{$c-flip-switch-track-width - ($c-flip-switch-knob-margin * 2) - $c-flip-switch-knob-width}, 0, 0);
   }
 
 }
@@ -90,7 +92,12 @@ $c-flip-switch-knob-scale: 2.5;
 // Enabled/disabled states
 
 .c-flip-switch-disabled {
-  background-color: $light-grey;
+  border-color: $grey;
+
+  &.c-flip-switch-on {
+    border-color: transparent;
+    background-color: $light-grey;
+  }
 
   .c-flip-switch-knob {
     background-color: $grey;
@@ -120,7 +127,7 @@ $c-flip-switch-knob-scale: 2.5;
   &:hover {
     .c-flip-switch-knob {
       @include transition-fast;
-      @include hover-shadow($dark, (3px / $c-flip-switch-knob-scale));
+      @include hover-shadow($dark, 3px);
     }
   }
 }

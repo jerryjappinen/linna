@@ -1,12 +1,12 @@
 <script>
-import Plain from '../../components/Plain'
+import Plaintext from '../../components/Plaintext'
 
-import codeSample from './code/Plain.txt'
+import codeSample from './code/Plaintext.txt'
 
 export default {
 
   components: {
-    Plain
+    Plaintext
   },
 
   data () {
@@ -22,7 +22,7 @@ export default {
 <template>
   <div>
 
-    <h1>Plain</h1>
+    <h1>Plaintext</h1>
 
     <p>
       Display plaintext using <doc href="?path=/story/util--toPlainText">
@@ -32,7 +32,7 @@ export default {
 
     <html-block :source="codeSample" />
 
-    <plain
+    <plaintext
       :body="'<h1>This or that</h1>\n\nin Markdown <strong>or in HTML</strong>'"
       :block="true"
     />

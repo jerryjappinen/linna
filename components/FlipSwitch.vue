@@ -76,7 +76,7 @@ $c-flip-switch-knob-scale: 2.5;
 // On states
 
 .c-flip-switch-on {
-  background-color: $blue;
+  background-color: $dark;
 
   .c-flip-switch-knob {
     background-color: $dark;

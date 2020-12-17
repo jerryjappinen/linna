@@ -2,7 +2,7 @@
 import toPlainText from 'linna-util/toPlainText'
 
 export default {
-  name: 'Plain',
+  name: 'Plaintext',
 
   props: {
 
@@ -35,7 +35,7 @@ export default {
 <template>
   <component
     :is="component"
-    class="c-plain"
+    class="c-plaintext"
   >
     {{ content }}
   </component>

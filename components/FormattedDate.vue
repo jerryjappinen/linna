@@ -4,6 +4,7 @@ import formatRelative from 'date-fns/formatRelative'
 import isDate from 'date-fns/isDate'
 
 import isNumber from 'lodash/isNumber'
+import upperFirst from 'lodash/upperFirst'
 
 import formatDate from 'linna-util/formatDate'
 import formatMachineReadableDate from 'linna-util/formatMachineReadableDate'
@@ -27,6 +28,11 @@ export default {
 
     absolutePrefix: {
       default: null
+    },
+
+    upperFirst: {
+      type: Boolean,
+      default: false
     }
 
   },
@@ -65,6 +71,10 @@ export default {
       return formatDate(this.normalizedDate)
     },
 
+    formattedDateString () {
+      return this.upperFirst ? upperFirst(this.dateString) : this.dateString
+    },
+
     prefix () {
 
       if (!this.isRelative && this.absolutePrefix) {
@@ -83,5 +93,5 @@ export default {
   <time
     class="c-formatted-date"
     :datetime="machineReadableDateString"
-  >{{ prefix ? prefix + ' ' : '' }}{{ dateString }}</time>
+  >{{ prefix ? prefix + ' ' : '' }}{{ formattedDateString }}</time>
 </template>

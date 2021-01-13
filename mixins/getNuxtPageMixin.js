@@ -2,6 +2,7 @@
 import kebabCase from 'lodash/kebabCase'
 import includes from 'lodash/includes'
 import map from 'lodash/map'
+import { isUndefined } from 'lodash'
 
 // Page mixins, should be used in each page-level component
 // FIXME: should also support passing a page object as `page`, not having to pass individual fields each time
@@ -40,19 +41,27 @@ export default ({ siteTitle, baseUrl, disableScriptSanitization }) => {
       }
 
       // Use content from page object, or explicitly provided values
-      const pageTitle = this.pageTitle || (this.page ? this.page.fields.title : null)
-      const pageDescription = this.pageDescription || (this.page ? this.page.fields.description : null)
-      const pageCoverImage = this.pageCoverImage || (this.page ? this.page.fields.coverImage : null)
-      const pageStyle = this.pageStyle || (this.page ? this.page.fields.style : null)
-      const pageTypes = this.pageTypes || (this.page ? this.page.fields.types : null)
+      let pageTitleSeparator = this.pageTitleSeparator || (this.page ? this.page.fields.titleSeparator : undefined)
+      const pageSiteTitle = this.siteTitle || (this.page ? this.page.fields.siteTitle : undefined) || siteTitle
+      const pageTitle = this.pageTitle || (this.page ? this.page.fields.title : undefined)
+      const pageDescription = this.pageDescription || (this.page ? this.page.fields.description : undefined)
+      const pageCoverImage = this.pageCoverImage || (this.page ? this.page.fields.coverImage : undefined)
+      const pageStyle = this.pageStyle || (this.page ? this.page.fields.style : undefined)
+      const pageTypes = this.pageTypes || (this.page ? this.page.fields.types : undefined)
+
+      if (isUndefined(pageTitleSeparator)) {
+        pageTitleSeparator = '–'
+      }
 
       // Page title
-      if (pageTitle) {
-        title = pageTitle
+      if (pageSiteTitle || pageTitle) {
+        title = pageTitle || pageSiteTitle
 
-        if (siteTitle && !includes(pageTitle, siteTitle)) {
-          title += ' – ' + siteTitle
+        if (pageSiteTitle && !includes(title, pageSiteTitle)) {
+          title += ' ' + (pageTitleSeparator ? (pageTitleSeparator.trim() + ' ' + pageSiteTitle) : '')
         }
+
+        title = title.trim()
 
         meta.push({
           hid: 'twitter:title',

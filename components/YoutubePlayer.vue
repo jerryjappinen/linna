@@ -25,7 +25,7 @@ export default {
     },
 
     dimensions: {
-      default: true
+      default: false
     },
 
     frame: {

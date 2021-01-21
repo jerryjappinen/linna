@@ -7,6 +7,14 @@ const getDateOnlyDate = (dateAndTime) => {
   return new Date(dateAndTime.toDateString())
 }
 
+const getHour = (date) => {
+  return date.getHours()
+}
+
+const getMinutes = (date) => {
+  return date.getMinutes()
+}
+
 export default new Vue({
 
   data () {
@@ -18,6 +26,8 @@ export default new Vue({
 
       // This only changes when date changes
       // You can listen to this without getting an update every second
+      currentMinutes: getMinutes(currentDate),
+      currentHour: getHour(currentDate),
       currentDate: getDateOnlyDate(currentDate)
     }
   },
@@ -25,10 +35,23 @@ export default new Vue({
   watch: {
 
     current (currentTime) {
+      const newMinutes = getMinutes(currentTime)
+      const newHour = getHour(currentTime)
       const newDate = getDateOnlyDate(currentTime)
 
-      if (newDate.getTime() !== this.currentDate.getTime()) {
-        this.currentDate = newDate
+      // Minute changed
+      if (this.currentMinutes !== newMinutes) {
+        this.currentMinutes = newMinutes
+
+        // Hour changed
+        if (this.currentHour !== newHour) {
+          this.currentHour = newHour
+
+          // Day changed
+          if (this.currentDate.getTime() !== newDate.getTime()) {
+            this.currentDate = newDate
+          }
+        }
       }
     }
 

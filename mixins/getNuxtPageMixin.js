@@ -114,22 +114,20 @@ export default ({ siteTitle, baseUrl, disableScriptSanitization }) => {
       }
 
       // Splash image for social sharing
-      if (pageCoverImage || this.pageCoverImageUrl) {
-        // Support either direct URL or Contentful resource field
-        const url = this.pageCoverImageUrl
-          ? this.pageCoverImageUrl
-          : pageCoverImage.fields.file.url
-
-        meta.push({
-          hid: 'twitter:image',
-          property: 'twitter:image',
-          content: url
-        })
+      // Support either direct URL or Contentful resource field
+      if (this.pageCoverImageUrl || pageCoverImage) {
+        const pageCoverImageUrl = this.pageCoverImageUrl || pageCoverImage.fields.file.url
 
         meta.push({
           hid: 'og:image',
           property: 'og:image',
-          content: url
+          content: pageCoverImageUrl
+        })
+
+        meta.push({
+          hid: 'twitter:image',
+          property: 'twitter:image',
+          content: pageCoverImageUrl
         })
       }
 
@@ -158,7 +156,7 @@ export default ({ siteTitle, baseUrl, disableScriptSanitization }) => {
 
         // Avoid double-slash
         if (baseUrl[baseUrl.length - 1] === '/' && currentPath[0] === '/') {
-          currentPath += currentPath.substring(1)
+          currentPath = currentPath.substring(1)
         }
 
         const canonicalUrl = baseUrl + currentPath

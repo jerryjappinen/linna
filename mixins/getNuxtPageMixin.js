@@ -42,6 +42,7 @@ export default ({ siteTitle, baseUrl, disableScriptSanitization }) => {
 
       // Use content from page object, or explicitly provided values
       let pageTitleSeparator = this.pageTitleSeparator || (this.page ? this.page.fields.titleSeparator : undefined)
+      const pageCanonicalUrl = this.canonicalUrl || (this.page ? this.page.fields.canonicalUrl : undefined)
       const pageSiteTitle = this.siteTitle || (this.page ? this.page.fields.siteTitle : undefined) || siteTitle
       const pageTitle = this.pageTitle || (this.page ? this.page.fields.title : undefined)
       const pageDescription = this.pageDescription || (this.page ? this.page.fields.description : undefined)
@@ -153,7 +154,15 @@ export default ({ siteTitle, baseUrl, disableScriptSanitization }) => {
 
       // Canonical URL
       if (baseUrl) {
-        const canonicalUrl = baseUrl + this.$route.path
+        let currentPath = pageCanonicalUrl || this.$route.path
+
+        // Avoid double-slash
+        if (baseUrl[baseUrl.length - 1] === '/' && currentPath[0] === '/') {
+          currentPath += currentPath.substring(1)
+        }
+
+        const canonicalUrl = baseUrl + currentPath
+
         links.push({
           rel: 'canonical',
           href: canonicalUrl

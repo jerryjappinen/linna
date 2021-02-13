@@ -39,7 +39,5 @@ export default {
   <time
     class="c-month"
     :datetime="machineReadableDateString"
-  >
-    {{ dateString }}
-  </time>
+  >{{ dateString }}</time>
 </template>

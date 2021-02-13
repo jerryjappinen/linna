@@ -5,9 +5,7 @@ export default {
 </script>
 
 <template>
-  <span class="c-tag">
-    <slot />
-  </span>
+  <span class="c-tag"><slot /></span>
 </template>
 
 <style lang="scss">

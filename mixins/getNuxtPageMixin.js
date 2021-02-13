@@ -66,7 +66,7 @@ export default ({ siteTitle, baseUrl, disableScriptSanitization }) => {
 
         meta.push({
           hid: 'twitter:title',
-          property: 'twitter:title',
+          name: 'twitter:title',
           content: title
         })
 
@@ -108,7 +108,7 @@ export default ({ siteTitle, baseUrl, disableScriptSanitization }) => {
 
         meta.push({
           hid: 'twitter:description',
-          property: 'twitter:description',
+          name: 'twitter:description',
           content: pageDescription
         })
       }
@@ -126,7 +126,7 @@ export default ({ siteTitle, baseUrl, disableScriptSanitization }) => {
 
         meta.push({
           hid: 'twitter:image',
-          property: 'twitter:image',
+          name: 'twitter:image',
           content: pageCoverImageUrl
         })
       }

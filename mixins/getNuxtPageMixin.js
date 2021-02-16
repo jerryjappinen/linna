@@ -52,7 +52,7 @@ export default ({ siteTitle, baseUrl, disableScriptSanitization }) => {
       const pageTypes = this.pageTypes || (this.page ? this.page.fields.types : undefined)
 
       // Timestamps
-      const pagePublishedAt = this.pagePublishedAt || (this.page ? this.page.fields.publishedAt : this.page.sys.createdAt)
+      const pagePublishedAt = this.pagePublishedAt || (this.page ? this.page.fields.publishedAt || this.page.sys.createdAt : undefined)
       // const pageUpdatedAt = this.pageUpdatedAt || (this.page ? this.page.sys.updatedAt : this.page.sys.createdAt)
 
       if (isUndefined(pageTitleSeparator)) {

@@ -1,15 +1,17 @@
 // NOTE: this module returns a generator function. Use this to generate the complete page mixin in your Nuxt project.
 import kebabCase from 'lodash/kebabCase'
 import includes from 'lodash/includes'
+import isUndefined from 'lodash/isUndefined'
 import map from 'lodash/map'
-import { isUndefined } from 'lodash'
+
+import formatMachineReadableDateTime from 'linna-util/formatMachineReadableDateTime'
 
 // Page mixins, should be used in each page-level component
 // FIXME: should also support passing a page object as `page`, not having to pass individual fields each time
 // @param `externalPageType` (optional)
 // @param `noIndex` (optional)
 // @param `page` (optional)
-// @param `pageAuthors` (optional)
+// @param `pageAuthor` (optional)
 // @param `pageDescription` (optional)
 // @param `pageCoverImage` (optional)
 // @param `pageCoverImageUrl` (optional)
@@ -17,7 +19,6 @@ import { isUndefined } from 'lodash'
 // @param `pageStyle` (optional)
 // @param `pageTitle` (optional)
 // @param `pageTypes` (optional)
-// @param `pageUpdatedAt` (optional)
 // @param `pagePublishedAt` (optional)
 
 // NOTE: Use disableScriptSanitization to disable script content sanitization. You might need it for microdata.
@@ -50,6 +51,10 @@ export default ({ siteTitle, baseUrl, disableScriptSanitization }) => {
       const pageStyle = this.pageStyle || (this.page ? this.page.fields.style : undefined)
       const pageTypes = this.pageTypes || (this.page ? this.page.fields.types : undefined)
 
+      // Timestamps
+      const pagePublishedAt = this.pagePublishedAt || (this.page ? this.page.fields.publishedAt : this.page.sys.createdAt)
+      // const pageUpdatedAt = this.pageUpdatedAt || (this.page ? this.page.sys.updatedAt : this.page.sys.createdAt)
+
       if (isUndefined(pageTitleSeparator)) {
         pageTitleSeparator = '–'
       }
@@ -77,10 +82,27 @@ export default ({ siteTitle, baseUrl, disableScriptSanitization }) => {
         })
 
         meta.push({
+          hid: 'og:og:site_name',
+          property: 'og:og:site_name',
+          content: pageSiteTitle
+        })
+
+        meta.push({
           hid: 'og:image:alt',
           property: 'og:image:alt',
           content: title
         })
+      }
+
+      // Timestamps
+      if (pagePublishedAt) {
+
+        meta.push({
+          hid: 'article:published_time',
+          property: 'article:published_time',
+          content: formatMachineReadableDateTime(pagePublishedAt)
+        })
+
       }
 
       // Page author

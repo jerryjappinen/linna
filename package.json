@@ -51,7 +51,7 @@
   },
   "license": "",
   "dependencies": {
-    "linna-util": "^5.0.5",
+    "linna-util": "^5.0.8",
     "lodash": "^4.17.20",
     "markdown-it": "^11.0.1",
     "md5": "^2.3.0",

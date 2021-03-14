@@ -3,6 +3,53 @@ import Vue from 'vue'
 import gamepadIsSupported from 'linna-util/gamepadIsSupported'
 import getGamepads from 'linna-util/getGamepads'
 
+
+
+// Math
+
+const getNormalizedStickPosition = (rawValue, innerDeadzone, outerDeadzone) => {
+  const min = innerDeadzone
+  const max = 1 - outerDeadzone
+
+  const multiplier = rawValue < 0 ? -1 : 1
+
+  return multiplier * (Math.max(0, (Math.abs(rawValue) - min)) / max)
+}
+
+const getDirection = (x, y) => {
+  if (!x && !y) {
+    return null
+  }
+
+  return 180 - ((Math.atan2(x, y) * 180) / Math.PI)
+}
+
+const getCompassDirection = (degrees) => {
+  if (degrees || degrees === 0) {
+    return Math.round(degrees / 90)
+  }
+
+  return null
+}
+
+const getDiagonalDirection = (degrees) => {
+  if (degrees || degrees === 0) {
+    return Math.round(degrees / 45)
+  }
+
+  return null
+}
+
+// NOTE: this is not exact for all controllers as their shapes can vary
+// We won't let this go above 1 but it's not perfect on an Xbox controller at 45 deg
+const getStickIntensity = (x, y) => {
+  return Math.min(1, Math.sqrt((x * x) + (y * y)))
+}
+
+
+
+// Misc
+
 const normalizeButtonValue = (buttonState) => {
   return buttonState.value || (buttonState.pressed ? 1 : 0)
 }
@@ -11,8 +58,17 @@ const getInputDataPlaceholder = () => {
   return {
     leftStickX: 0,
     leftStickY: 0,
+    leftStickIntensity: 0,
+    leftStickDirection: null,
+    leftStickCompassDirection: null,
+    leftStickDiagonalDirection: null,
+
     rightStickX: 0,
     rightStickY: 0,
+    rightStickIntensity: 0,
+    rightStickDirection: null,
+    rightStickCompassDirection: null,
+    rightStickDiagonalDirection: null,
 
     faceButtonA: 0,
     faceButtonX: 0,
@@ -40,12 +96,34 @@ const getInputDataPlaceholder = () => {
   }
 }
 
-const getInputData = (gamepad) => {
+const getInputData = (gamepad, {
+  leftStickInnerDeadzone,
+  leftStickOuterDeadzone,
+  rightStickInnerDeadzone,
+  rightStickOuterDeadzone
+}) => {
+  const leftStickX = getNormalizedStickPosition(gamepad.axes[0], leftStickInnerDeadzone, leftStickOuterDeadzone)
+  const leftStickY = getNormalizedStickPosition(gamepad.axes[1], leftStickInnerDeadzone, leftStickOuterDeadzone)
+  const leftStickDirection = getDirection(leftStickX, leftStickY)
+
+  const rightStickX = getNormalizedStickPosition(gamepad.axes[2], rightStickInnerDeadzone, rightStickOuterDeadzone)
+  const rightStickY = getNormalizedStickPosition(gamepad.axes[3], rightStickInnerDeadzone, rightStickOuterDeadzone)
+  const rightStickDirection = getDirection(rightStickX, rightStickY)
+
   return {
-    leftStickX: gamepad.axes[0],
-    leftStickY: gamepad.axes[1],
-    rightStickX: gamepad.axes[2],
-    rightStickY: gamepad.axes[3],
+    leftStickX,
+    leftStickY,
+    leftStickIntensity: getStickIntensity(leftStickX, leftStickY),
+    leftStickDirection,
+    leftStickCompassDirection: getCompassDirection(leftStickDirection),
+    leftStickDiagonalDirection: getDiagonalDirection(leftStickDirection),
+
+    rightStickX,
+    rightStickY,
+    rightStickIntensity: getStickIntensity(rightStickX, rightStickY),
+    rightStickDirection,
+    rightStickCompassDirection: getCompassDirection(rightStickDirection),
+    rightStickDiagonalDirection: getDiagonalDirection(rightStickDirection),
 
     faceButtonA: normalizeButtonValue(gamepad.buttons[0]),
     faceButtonX: normalizeButtonValue(gamepad.buttons[2]),
@@ -74,6 +152,12 @@ const getInputData = (gamepad) => {
   }
 }
 
+
+
+// Service
+
+const defaultDeadZone = 0.15
+
 export default new Vue({
 
   data () {
@@ -84,6 +168,14 @@ export default new Vue({
       mainLoopId: null,
       mainLoopStartTimestamp: 0,
       mainLoopElapsed: 0,
+
+      // NOTE: would be more powerful to set this per controller
+      settings: {
+        leftStickInnerDeadzone: defaultDeadZone,
+        leftStickOuterDeadzone: defaultDeadZone,
+        rightStickInnerDeadzone: defaultDeadZone,
+        rightStickOuterDeadzone: defaultDeadZone
+      },
 
       inputs: [
         getInputDataPlaceholder(),
@@ -151,7 +243,7 @@ export default new Vue({
 
     updateInputValues (timestamp) {
       this.connectedGamepadIndices.forEach((i) => {
-        const newInputValues = getInputData(this.gamepads[i])
+        const newInputValues = getInputData(this.gamepads[i], this.settings)
 
         // Update only changed values
         for (const inputKey in newInputValues) {

@@ -36,22 +36,25 @@ export default {
 
     <js-block :source="dump" />
 
-    <div class="buttons">
-      <div
-        v-for="(value, key) in gamepadInputs"
-        :key="key"
-        :class="{
-          'button-pressed': !!value,
-          'button-not-pressed': !value
-        }"
-        :style="{
-          backgroundColor: 'rgba(0, 0, 0, ' + Math.abs(value * 0.5) + ')'
-        }"
-        class="button"
-      >
-        {{ key }}: {{ value }}
-      </div>
-    </div>
+    <table class="buttons">
+      <tbody>
+        <tr
+          v-for="(value, key) in gamepadInputs"
+          :key="key"
+          :class="{
+            'button-pressed': !!value,
+            'button-not-pressed': !value
+          }"
+          :style="{
+            backgroundColor: 'rgba(0, 0, 0, ' + Math.abs(value * 0.5) + ')'
+          }"
+          class="button"
+        >
+          <td>{{ key }}</td>
+          <td>{{ value }}</td>
+        </tr>
+      </tbody>
+    </table>
 
   </div>
 </template>
@@ -59,18 +62,26 @@ export default {
 <style lang="scss" scoped>
 
 .buttons {
-  display: flex;
-  flex-wrap: wrap;
+
+  td,
+  th {
+    padding: 0.1em 0.25em;
+
+    &:first-child {
+      width: 16em;
+    }
+
+  }
+
 }
 
-.button {
-  padding: 0.5em;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #ccc;
-  width: 25%;
-  box-sizing: border-box;
-}
+// .button {
+//   border-width: 1px;
+//   border-style: solid;
+//   border-color: #ccc;
+//   width: 100%;
+//   box-sizing: border-box;
+// }
 
 .button-not-pressed {
   opacity: 0.5;

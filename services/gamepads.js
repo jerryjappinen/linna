@@ -46,6 +46,31 @@ const getStickIntensity = (x, y) => {
   return Math.min(1, Math.sqrt((x * x) + (y * y)))
 }
 
+const getDPadDiagonalDirection = (up, down, left, right) => {
+
+  if (up) {
+    return right
+      ? 1
+      : left
+        ? 7
+        : 0
+  }
+
+  if (down) {
+    return right
+      ? 3
+      : left
+        ? 5
+        : 4
+  }
+
+  return right
+    ? 2
+    : left
+      ? 6
+      : null
+}
+
 
 
 // Misc
@@ -75,10 +100,14 @@ const getInputDataPlaceholder = () => {
     faceButtonY: 0,
     faceButtonB: 0,
 
-    dPadLeft: 0,
-    dPadRight: 0,
     dPadUp: 0,
     dPadDown: 0,
+    dPadLeft: 0,
+    dPadRight: 0,
+
+    dPadDirection: null,
+    dPadCompassDirection: null,
+    dPadDiagonalDirection: null,
 
     leftTrigger: 0,
     rightTrigger: 0,
@@ -110,6 +139,13 @@ const getInputData = (gamepad, {
   const rightStickY = getNormalizedStickPosition(gamepad.axes[3], rightStickInnerDeadzone, rightStickOuterDeadzone)
   const rightStickDirection = getDirection(rightStickX, rightStickY)
 
+  const dPadUp = normalizeButtonValue(gamepad.buttons[12])
+  const dPadDown = normalizeButtonValue(gamepad.buttons[13])
+  const dPadLeft = normalizeButtonValue(gamepad.buttons[14])
+  const dPadRight = normalizeButtonValue(gamepad.buttons[15])
+
+  const dPadDiagonalDirection = getDPadDiagonalDirection(dPadUp, dPadDown, dPadLeft, dPadRight)
+
   return {
     leftStickX,
     leftStickY,
@@ -130,11 +166,14 @@ const getInputData = (gamepad, {
     faceButtonY: normalizeButtonValue(gamepad.buttons[3]),
     faceButtonB: normalizeButtonValue(gamepad.buttons[1]),
 
-    dPadLeft: normalizeButtonValue(gamepad.buttons[14]),
-    dPadRight: normalizeButtonValue(gamepad.buttons[15]),
+    dPadUp,
+    dPadDown,
+    dPadLeft,
+    dPadRight,
 
-    dPadUp: normalizeButtonValue(gamepad.buttons[12]),
-    dPadDown: normalizeButtonValue(gamepad.buttons[13]),
+    dPadDirection: dPadDiagonalDirection * 45,
+    dPadCompassDirection: Math.floor(dPadDiagonalDirection / 2),
+    dPadDiagonalDirection,
 
     leftTrigger: normalizeButtonValue(gamepad.buttons[6]),
     rightTrigger: normalizeButtonValue(gamepad.buttons[7]),

@@ -142,6 +142,7 @@ export default ({ siteTitle, baseUrl, disableScriptSanitization }) => {
 
         meta.push({
           hid: 'og:image',
+          name: 'image',
           property: 'og:image',
           content: pageCoverImageUrl
         })

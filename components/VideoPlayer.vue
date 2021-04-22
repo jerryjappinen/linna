@@ -100,6 +100,7 @@ export default {
     class="c-video-player c-video-player-video"
     :title="title"
     :poster="poster"
+    v-on="$listeners"
   >
     <source
       v-bind="sourceBinding"

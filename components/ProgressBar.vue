@@ -52,9 +52,6 @@ export default {
       'c-progress-bar-transition': transition,
       'c-progress-bar-no-transition': !transition
     }"
-    :data-value="float"
-    :data-value-bounded="normalizedFloat"
-    :data-percentage="percentage"
   >
     <div
       class="c-progress-bar-fill"
@@ -66,6 +63,8 @@ export default {
         transform: 'translateX(' + percentage + '%)'
       }"
     />
+
+    <div class="c-progress-bar-track" />
   </div>
 </template>
 
@@ -74,15 +73,22 @@ export default {
 .c-progress-bar {
   @include relative;
   @include no-overflow;
-  background-color: translucent($very-dark);
   height: 4px;
+}
+
+.c-progress-bar-track {
+  @include fill;
+  z-index: 1;
+  background-color: currentColor;
+  opacity: 0.2;
 }
 
 .c-progress-bar-fill {
   @include fill;
   left: auto;
   right: 100%;
-  background-color: $very-dark;
+  z-index: 2;
+  background-color: currentColor;
 
   @include transition-fast;
 }

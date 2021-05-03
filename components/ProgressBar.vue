@@ -1,0 +1,98 @@
+<script>
+export default {
+  name: 'ProgressBar',
+
+  props: {
+
+    min: {
+      type: Number,
+      default: 0
+    },
+
+    max: {
+      type: Number,
+      default: 100
+    },
+
+    value: {
+      type: Number,
+      default: 0
+    },
+
+    transition: {
+      type: Boolean,
+      default: true
+    }
+
+  },
+
+  computed: {
+
+    float () {
+      return (this.value - this.min) / Math.abs(this.max - this.min)
+    },
+
+    normalizedFloat () {
+      return Math.max(0, Math.min(1, this.float))
+    },
+
+    percentage () {
+      return 100 * this.normalizedFloat
+    }
+
+  }
+
+}
+</script>
+
+<template>
+  <div
+    class="c-progress-bar"
+    :class="{
+      'c-progress-bar-transition': transition,
+      'c-progress-bar-no-transition': !transition
+    }"
+    :data-value="float"
+    :data-value-bounded="normalizedFloat"
+    :data-percentage="percentage"
+  >
+    <div
+      class="c-progress-bar-fill"
+      :class="{
+        'c-progress-bar-fill-transition': transition,
+        'c-progress-bar-fill-no-transition': !transition
+      }"
+      :style="{
+        transform: 'translateX(' + percentage + '%)'
+      }"
+    />
+  </div>
+</template>
+
+<style lang="scss">
+
+.c-progress-bar {
+  @include relative;
+  @include no-overflow;
+  background-color: translucent($very-dark);
+  height: 4px;
+}
+
+.c-progress-bar-fill {
+  @include fill;
+  left: auto;
+  right: 100%;
+  background-color: $very-dark;
+
+  @include transition-fast;
+}
+
+.c-progress-bar-fill-no-transition {
+  @include transition-properties-style;
+}
+
+.c-progress-bar-fill-transition {
+  @include transition-properties-common;
+}
+
+</style>

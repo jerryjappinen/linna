@@ -198,7 +198,6 @@ export default ({ siteTitle, baseUrl, disableScriptSanitization }) => {
 
       // Print standardised class names for body that can be used for styling
       let bodyClasses = [
-        'body-dark-mode',
         'body-page-' + kebabCase(this.$route.name),
         'body-layout-' + kebabCase(this.$options.layout ? this.$options.layout : 'default')
       ]

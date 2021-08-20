@@ -4,6 +4,7 @@ import Vue from 'vue'
 import styles from '../config/styles'
 
 import detectObtrusiveScrollbars from 'linna-util/detectObtrusiveScrollbars'
+import userPrefersDarkMode from 'linna-util/userPrefersDarkMode'
 import windowExists from 'linna-util/windowExists'
 
 // Scroll position or dimensions are updated at most once per this amount of ms
@@ -17,6 +18,8 @@ export default new Vue({
   data () {
     return {
       hasObtrusiveScrollbars: false,
+      darkMode: null,
+
       width: 0,
       height: 0,
       scrollX: 0,
@@ -31,7 +34,8 @@ export default new Vue({
 
       // Debounced callbacks
       $_debouncedOnResize: null,
-      $_debouncedOnScroll: null
+      $_debouncedOnScroll: null,
+      $_darkModeMatchMediaObject: null
     }
   },
 
@@ -113,6 +117,7 @@ export default new Vue({
 
     // Bind listeners
     onCreated () {
+      this.$_updateDarkMode()
       this.$_updateDimensions()
       this.$_updateScrollValues()
 
@@ -125,6 +130,11 @@ export default new Vue({
 
       window.addEventListener('resize', this.$_debouncedOnResize)
       window.addEventListener('scroll', this.$_debouncedOnScroll)
+
+      if (window.matchMedia) {
+        this.$_darkModeMatchMediaObject = window.matchMedia('(prefers-color-scheme: dark)')
+        this.$_darkModeMatchMediaObject.addEventListener('change', this.$_updateDarkMode)
+      }
     },
 
     // Remove listeners
@@ -132,8 +142,13 @@ export default new Vue({
       if (this.$_debouncedOnResize) {
         window.removeEventListener('resize', this.$_debouncedOnResize)
       }
+
       if (this.$_debouncedOnScroll) {
         window.removeEventListener('scroll', this.$_debouncedOnScroll)
+      }
+
+      if (this.$_darkModeMatchMediaObject) {
+        this.$_darkModeMatchMediaObject.removeEventListener('change', this.$_updateDarkMode)
       }
     },
 
@@ -171,7 +186,11 @@ export default new Vue({
 
 
 
-    // Throttled updaters
+    // Updaters
+
+    $_updateDarkMode () {
+      this.darkMode = userPrefersDarkMode()
+    },
 
     $_updateDimensions () {
       this.width = this.$_getWidth()

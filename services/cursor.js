@@ -29,7 +29,7 @@ export default new Vue({
 
   beforeDestroy () {
     if (windowExists() && this.callback) {
-      window.removeEventListener('moudemove', this.callback)
+      window.removeEventListener('mousemove', this.callback)
     }
   }
 

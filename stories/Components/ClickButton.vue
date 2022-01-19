@@ -31,6 +31,15 @@ export default {
     <div class="grid">
 
       <div>
+        <click-button
+          href="https://domain.com"
+          :external="true"
+        >
+          External
+        </click-button>
+      </div>
+
+      <div>
         <click-button @click="onClick">
           Default
         </click-button>

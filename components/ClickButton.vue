@@ -133,8 +133,8 @@ export default {
 
       }
 
-      if (this.external || this.noIndex) {
-        bindings.rel = 'nofollow noopener'
+      if (this.noIndex || (this.external && this.noIndex !== false)) {
+        bindings.rel = 'nofollow noopener noreferrer'
       }
 
       if (this.external) {

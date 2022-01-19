@@ -1,6 +1,7 @@
 import Vue from 'vue'
 
 import gamepadIsSupported from 'linna-util/gamepadIsSupported'
+import getDirection from 'linna-util/getDirection'
 import getGamepads from 'linna-util/getGamepads'
 
 
@@ -14,14 +15,6 @@ const getNormalizedStickPosition = (rawValue, innerDeadzone, outerDeadzone) => {
   const multiplier = rawValue < 0 ? -1 : 1
 
   return multiplier * (Math.max(0, (Math.abs(rawValue) - min)) / max)
-}
-
-const getDirection = (x, y) => {
-  if (!x && !y) {
-    return null
-  }
-
-  return 180 - ((Math.atan2(x, y) * 180) / Math.PI)
 }
 
 const getCompassDirection = (degrees) => {

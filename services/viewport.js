@@ -25,7 +25,7 @@ export default new Vue({
       scrollX: 0,
       scrollY: 0,
 
-      isResizing: false,
+      // isResizing: false,
       isScrollingDown: false,
       isScrollingUp: false,
 
@@ -156,17 +156,17 @@ export default new Vue({
 
     // Helpers
 
-    $_onResizeStart () {
-      if (!this.isResizing) {
-        this.isResizing = true
-      }
-    },
+    // $_onResizeStart () {
+    //   if (!this.isResizing) {
+    //     this.isResizing = true
+    //   }
+    // },
 
-    $_onResizeEnd () {
-      if (this.isResizing) {
-        this.isResizing = false
-      }
-    },
+    // $_onResizeEnd () {
+    //   if (this.isResizing) {
+    //     this.isResizing = false
+    //   }
+    // },
 
     $_getScrollX () {
       return (window.pageXOffset || window.document.scrollLeft || 0) - (window.document.clientLeft || 0)

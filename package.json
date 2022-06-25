@@ -4,10 +4,6 @@
   "description": "Shared utility code and Vue component library.",
   "main": "index.js",
   "private": false,
-  "engines": {
-    "node": "14.x",
-    "npm": "6.14.13"
-  },
   "files": [
     "components",
     "config",

@@ -273,7 +273,7 @@ export default new Vue({
       this.gamepads = getGamepads()
     },
 
-    updateInputValues (timestamp) {
+    updateInputValues () {
       this.connectedGamepadIndices.forEach((i) => {
         const newInputValues = getInputData(this.gamepads[i], this.settings)
 

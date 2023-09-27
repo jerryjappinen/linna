@@ -107,12 +107,6 @@ $c-flip-switch-knob-width: $c-flip-switch-track-height - (2 * $c-flip-switch-kno
     @include transition-fast;
   }
 
-  // &.c-flip-switch-off {
-  //   .c-flip-switch-knob {
-  //     background-color: $dark;
-  //   }
-  // }
-
 }
 
 // Feedback under controls

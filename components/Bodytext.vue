@@ -90,7 +90,5 @@ export default {
       'c-bodytext-with-line-breaks': lineBreaks
     }"
     @click="onClick"
-  >
-    <slot />
-  </div>
+  ><slot /></div>
 </template>

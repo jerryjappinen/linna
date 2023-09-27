@@ -95,7 +95,5 @@ export default {
   <time
     class="c-date-interval"
     :datetime="machineReadableEarlierDateString"
-  >
-    {{ dateString }}
-  </time>
+  >{{ dateString }}</time>
 </template>

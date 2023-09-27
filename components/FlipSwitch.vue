@@ -80,7 +80,7 @@ $c-flip-switch-knob-width: $c-flip-switch-track-height - (2 * $c-flip-switch-kno
   background-color: currentColor;
 
   .c-flip-switch-knob {
-    background-color: currentColor;
+    background-color: $white;
     transform: translate3d(#{$c-flip-switch-track-width - ($c-flip-switch-knob-margin * 2) - $c-flip-switch-knob-width}, 0, 0);
   }
 

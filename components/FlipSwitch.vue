@@ -46,10 +46,6 @@ $c-flip-switch-knob-width: $c-flip-switch-track-height - (2 * $c-flip-switch-kno
   width: $c-flip-switch-track-width;
   height: $c-flip-switch-track-height;
 
-  // Since knob will overflow
-  margin-left: $c-flip-switch-track-height / 2;
-  margin-right: $c-flip-switch-track-height / 2;
-
   // Default for enabled, off state
   border-color: currentColor;
   // background-color: $light-grey;

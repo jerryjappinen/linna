@@ -51,7 +51,7 @@ $c-flip-switch-knob-width: $c-flip-switch-track-height - (2 * $c-flip-switch-kno
   margin-right: $c-flip-switch-track-height / 2;
 
   // Default for enabled, off state
-  border-color: $dark;
+  border-color: currentColor;
   // background-color: $light-grey;
 }
 
@@ -68,9 +68,8 @@ $c-flip-switch-knob-width: $c-flip-switch-track-height - (2 * $c-flip-switch-kno
   // Default for off state
   @include round;
   @include hover-shadow-rest($dark, (3px));
-  background-color: $dark;
+  background-color: currentColor;
   transform: translate3d(0, 0, 0);
-
 }
 
 
@@ -78,10 +77,10 @@ $c-flip-switch-knob-width: $c-flip-switch-track-height - (2 * $c-flip-switch-kno
 // On states
 
 .c-flip-switch-on {
-  background-color: $dark;
+  background-color: currentColor;
 
   .c-flip-switch-knob {
-    background-color: $white;
+    background-color: currentColor;
     transform: translate3d(#{$c-flip-switch-track-width - ($c-flip-switch-knob-margin * 2) - $c-flip-switch-knob-width}, 0, 0);
   }
 

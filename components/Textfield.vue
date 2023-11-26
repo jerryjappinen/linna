@@ -364,19 +364,11 @@ export default {
   right: 0.4em;
   padding: 0.25em;
 
-  color: $dark;
-  background-color: $white;
-
   @include transition-hover-active;
 
   .c-vector {
     @include block;
   }
-
-  // &:focus,
-  // &:hover {
-  //   transform: scale(1.1);
-  // }
 
   &:active {
     transform: translateY(2px);

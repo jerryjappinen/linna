@@ -43,7 +43,7 @@ export default {
   .speakerdeck-iframe {
     box-shadow: none !important;
     border-radius: 0 !important;
-    background-color: $white !important;
+    background-color: transparent !important;
     width: 100% !important;
     height: 100% !important;
   }

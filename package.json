@@ -47,11 +47,11 @@
   },
   "license": "",
   "dependencies": {
-    "linna-util": "^5.0.15",
+    "linna-util": "^5.0.21",
     "lodash": "^4.17.21",
     "markdown-it": "^12.3.2",
     "md5": "^2.3.0",
-    "vue-slider-component": "^3.2.15"
+    "vue-slider-component": "^3.2.24"
   },
   "devDependencies": {
     "@babel/core": "^7.4.4",
@@ -78,7 +78,7 @@
     "highlight.js": "^10.1.2",
     "jest": "^26.4.0",
     "lozad": "^1.15.0",
-    "moabit": "github:Eiskis/moabit#v2.0.0-edge",
+    "moabit": "^2.6.1",
     "node-sass": "^4.12.0",
     "raf": "^3.4.1",
     "raw-loader": "^2.0.0",

@@ -1,5 +1,5 @@
 <script>
-import getContentfulImageUrl from 'linna-util/getContentfulImageUrl'
+import getContentfulImageUrl from 'linna-util/contentful/getImageUrl'
 
 export default {
 

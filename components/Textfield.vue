@@ -87,6 +87,10 @@ export default {
 
     disabled: {
       default: false
+    },
+
+    ariaLabel: {
+      default: undefined
     }
 
   },
@@ -262,6 +266,7 @@ export default {
       :placeholder="placeholder"
       :required="!!required"
       :disabled="!!disabled"
+      :aria-label="ariaLabel"
       class="c-textfield-input"
       @focus="onFocus"
       @blur="onBlur"
@@ -282,6 +287,7 @@ export default {
       :placeholder="placeholder"
       :required="!!required"
       :disabled="!!disabled"
+      :aria-label="ariaLabel"
       class="c-textfield-input"
       @focus="onFocus"
       @blur="onBlur"

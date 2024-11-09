@@ -1,5 +1,5 @@
 <script>
-import ContentfulImageBase from './contentfulImageBase'
+import ContentfulImageBase from './ContentfulImageBase'
 
 import DelayedBitmap from '../DelayedBitmap'
 

@@ -31,7 +31,7 @@ export default {
 
     <h1><code>getContentfulImageUrl(url, options)</code></h1>
 
-    <js-block source="import getContentfulImageUrl from 'linna-util/getContentfulImageUrl'" />
+    <js-block source="import getContentfulImageUrl from 'linna-util/contentful/getImageUrl'" />
 
     <h3>Dependencies</h3>
 

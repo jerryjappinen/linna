@@ -1,6 +1,6 @@
 import isPlainObject from 'lodash/isPlainObject'
 
-import getContentfulImageUrl from 'linna-util/contentful/getImageUrl'
+import getContentfulImageUrl from 'linna-util/getContentfulImageUrl'
 
 const normalizeOptions = (input) => {
 

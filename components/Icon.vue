@@ -20,7 +20,7 @@ export default {
   <vector
     class="c-icon"
     :src="src"
-    :title="title"
+    :title="title || src"
   />
 </template>
 

@@ -297,6 +297,7 @@ export default {
     <icon
       v-if="icon"
       :src="icon"
+      :title="title || placeholder || ariaLabel"
       class="c-textfield-icon"
     />
 
@@ -308,7 +309,10 @@ export default {
           class="c-textfield-button c-textfield-clear"
           @click="onClearClick"
         >
-          <icon src="cross" />
+          <icon
+            src="cross"
+            title="Clear"
+          />
         </span>
       </fade>
 
@@ -322,7 +326,10 @@ export default {
           class="c-textfield-button c-textfield-undo"
           @click="onUndoClick"
         >
-          <icon src="undo" />
+          <icon
+            src="undo"
+            title="Undo"
+          />
         </span>
       </fade>
 

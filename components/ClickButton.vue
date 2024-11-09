@@ -36,6 +36,11 @@ export default {
       default: null
     },
 
+    title: {
+      type: String,
+      default: null
+    },
+
     external: {
       default: null
     },
@@ -196,6 +201,7 @@ export default {
       <icon
         v-if="iconLeft && !loading"
         :src="iconLeft"
+        :title="title"
         class="c-click-button-icon c-click-button-icon-left"
       />
     </fade>
@@ -204,6 +210,7 @@ export default {
       <icon
         v-if="iconRight && !loading"
         :src="iconRight"
+        :title="title"
         class="c-click-button-icon c-click-button-icon-right"
       />
     </fade>

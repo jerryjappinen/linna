@@ -297,7 +297,7 @@ export default {
     <icon
       v-if="icon"
       :src="icon"
-      :title="title || placeholder || ariaLabel"
+      :title="name || placeholder || ariaLabel"
       class="c-textfield-icon"
     />
 
